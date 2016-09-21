@@ -1,0 +1,38 @@
+{
+  "name": "react-chords",
+  "version": "0.1.0",
+  "private": false,
+  "devDependencies": {
+    "eslint-config-standard-react": "^4.0.2",
+    "react-scripts": "0.4.3",
+    "standard": "^8.1.0"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "standard": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tombatossals/react-chords.git"
+  },
+  "keywords": [
+    "svg",
+    "react",
+    "javascript",
+    "guitar",
+    "ukelele"
+  ],
+  "author": "David Rubert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tombatossals/react-chords/issues"
+  },
+  "homepage": "https://github.com/tombatossals/react-chords#readme"
+}
