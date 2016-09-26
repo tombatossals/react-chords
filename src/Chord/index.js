@@ -1,29 +1,34 @@
 import React from 'react'
-import './styles.css'
+import Frets from './Frets'
+import Dot from './Dot'
 
 const Chord = ({ tunning, name }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width='200'
-    height='300'
-    viewBox='0 0 100 100'>
-    <g transform='translate(0,0.182918)'>
-      <g transform='matrix(1.368608,0,0,1.249953,30.96028,-872.8009)'>
-        <path
-          style={{ stroke: '#000000', strokeWidth: 0.72000003, strokeLinecap: 'round', strokeLinejoin: 'round' }}
-          d='m 0,841.89 116.22,0' />
-      </g>
+    preserveAspectRatio='xMinYMin meet'
+    viewBox='0 0 60 80'>
+    <g
+      transform='translate(5, 15)'>
+      <Frets letters />
+      <Dot string='6' />
+      <Dot string='5' fret='2' finger='2' />
+      <Dot string='4' fret='2' finger='3' />
+      <Dot string='3' fret='1' finger='1' />
+      <Dot string='2' />
+      <Dot string='1' />
     </g>
   </svg>
 )
 
 Chord.propTypes = {
   tunning: React.PropTypes.string,
+  instrument: React.PropTypes.string,
   name: React.PropTypes.string
 }
 
 Chord.defaultProps = {
-  tunning: 'default'
+  tunning: 'default',
+  instrument: 'guitar'
 }
 
 export default Chord
