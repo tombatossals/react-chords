@@ -14,7 +14,7 @@ const fretMatrix = {
   1: 6.5,
   2: 18,
   3: 30,
-  4: 42,
+  4: 42
 }
 
 const styles = {
@@ -36,6 +36,14 @@ const styles = {
     fontFamily: 'Verdana',
     textAnchor: 'middle',
     alignmentBaseline: 'baseline'
+  },
+  muted: {
+    fontSize: '0.4rem',
+    fontWeight: 'bold',
+    fill: '#444',
+    fontFamily: 'Verdana',
+    textAnchor: 'middle',
+    alignmentBaseline: 'baseline'
   }
 }
 
@@ -44,24 +52,30 @@ const radius = {
   fret: 4
 }
 
-const Dot = ({ string, fret, finger }) => (
-  <g>
-    <circle
-      style={fret === '0' ? styles['open'] : styles['fret']}
-      cx={stringMatrix[string]}
-      cy={fretMatrix[fret]}
-      r={fret === '0' ? radius['open'] : radius['fret']}
-    />
-    {finger &&
-      <text style={styles['finger']} x={stringMatrix[string]} y={fretMatrix[fret] + 1}>{ finger }</text>
-    }
-  </g>
-)
+const Dot = ({ string, fret, finger, muted }) =>
+  muted === true
+    ? <text
+      style={styles['muted']}
+      x='{stringMatrix[string]}'
+      y='-2'
+      >x</text>
+    : (<g>
+      <circle
+        style={fret === '0' ? styles['open'] : styles['fret']}
+        cx={stringMatrix[string]}
+        cy={fretMatrix[fret]}
+        r={fret === '0' ? radius['open'] : radius['fret']}
+      />
+      {finger &&
+        <text style={styles['finger']} x={stringMatrix[string]} y={fretMatrix[fret] + 1}>{ finger }</text>
+      }
+    </g>)
 
 Dot.propTypes = {
   string: React.PropTypes.oneOf(Object.keys(stringMatrix)),
   fret: React.PropTypes.oneOf(Object.keys(fretMatrix)),
-  finger: React.PropTypes.oneOf([ '1', '2', '3', '4', '5' ])
+  finger: React.PropTypes.oneOf([ '1', '2', '3', '4', '5' ]),
+  muted: React.PropTypes.boolean
 }
 
 Dot.defaultProps = {

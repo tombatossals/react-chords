@@ -10,7 +10,7 @@ const Chord = ({ tunning, name }) => (
     <g
       transform='translate(5, 15)'>
       <Frets letters />
-      <Dot string='6' />
+      <Dot string='6' muted />
       <Dot string='5' fret='2' finger='2' />
       <Dot string='4' fret='2' finger='3' />
       <Dot string='3' fret='1' finger='1' />
