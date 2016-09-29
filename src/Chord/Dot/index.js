@@ -1,21 +1,8 @@
 import React from 'react'
 
-const stringMatrix = {
-  6: 0,
-  5: 10,
-  4: 20,
-  3: 30,
-  2: 40,
-  1: 50
-}
-
-const fretMatrix = {
-  0: -5,
-  1: 6.5,
-  2: 18,
-  3: 30,
-  4: 42
-}
+const stringXYPosition = [ 50, 40, 30, 20, 10, 0 ]
+const fretXYPosition = [ -4, 6.5, 18, 30, 42 ]
+const fingerXYPosition = [ -3, 7.5, 19, 31, 43 ]
 
 const styles = {
   open: {
@@ -52,34 +39,32 @@ const radius = {
   fret: 4
 }
 
-const Dot = ({ string, fret, finger, muted }) =>
-  muted === true
+const Dot = ({ string, fret, finger }) =>
+  fret === -1
     ? <text
       style={styles['muted']}
-      x='{stringMatrix[string]}'
+      x={stringXYPosition[string]}
       y='-2'
       >x</text>
     : (<g>
       <circle
-        style={fret === '0' ? styles['open'] : styles['fret']}
-        cx={stringMatrix[string]}
-        cy={fretMatrix[fret]}
-        r={fret === '0' ? radius['open'] : radius['fret']}
+        style={fret === 0 ? styles['open'] : styles['fret']}
+        cx={stringXYPosition[string - 1]}
+        cy={fretXYPosition[fret]}
+        r={fret === 0 ? radius['open'] : radius['fret']}
       />
-      {finger &&
-        <text style={styles['finger']} x={stringMatrix[string]} y={fretMatrix[fret] + 1}>{ finger }</text>
-      }
+      { finger > 0 &&
+        <text style={styles['finger']} x={stringXYPosition[string - 1]} y={fingerXYPosition[fret]}>{ finger }</text>}
     </g>)
 
 Dot.propTypes = {
-  string: React.PropTypes.oneOf(Object.keys(stringMatrix)),
-  fret: React.PropTypes.oneOf(Object.keys(fretMatrix)),
-  finger: React.PropTypes.oneOf([ '1', '2', '3', '4', '5' ]),
-  muted: React.PropTypes.boolean
+  string: React.PropTypes.number,
+  fret: React.PropTypes.oneOf([ -1 ].concat([...Array(fretXYPosition.length).keys()])),
+  finger: React.PropTypes.oneOf([ 0, 1, 2, 3, 4 ])
 }
 
 Dot.defaultProps = {
-  fret: '0'
+  fret: 0
 }
 
 export default Dot

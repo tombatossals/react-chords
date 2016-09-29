@@ -1,34 +1,39 @@
 import React from 'react'
 import Frets from './Frets'
 import Dot from './Dot'
+import instruments from './instruments'
 
-const Chord = ({ tunning, name }) => (
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    preserveAspectRatio='xMinYMin meet'
-    viewBox='0 0 60 80'>
-    <g
-      transform='translate(5, 15)'>
-      <Frets letters />
-      <Dot string='6' muted />
-      <Dot string='5' fret='2' finger='2' />
-      <Dot string='4' fret='2' finger='3' />
-      <Dot string='3' fret='1' finger='1' />
-      <Dot string='2' />
-      <Dot string='1' />
-    </g>
-  </svg>
-)
+const Chord = ({ instrument, tunning, key, type }) => {
+  const i = instruments[instrument]
+  const chord = i.chords[key].find(chord => chord.type === type)
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      preserveAspectRatio='xMinYMin meet'
+      viewBox='0 0 60 80'>
+      <g
+        transform='translate(5, 15)'>
+        <Frets letters />
+        { chord.strings.map((fret, string) => (
+          <Dot key={string} string={string + 1} fret={fret} finger={chord.fingers[string]} />
+        ))}
+      </g>
+    </svg>
+  )
+}
 
 Chord.propTypes = {
   tunning: React.PropTypes.string,
   instrument: React.PropTypes.string,
-  name: React.PropTypes.string
+  key: React.PropTypes.string,
+  type: React.PropTypes.string
 }
 
 Chord.defaultProps = {
   tunning: 'default',
-  instrument: 'guitar'
+  instrument: 'guitar',
+  key: 'C',
+  type: 'major'
 }
 
 export default Chord

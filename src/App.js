@@ -14,7 +14,7 @@ class App extends Component {
         <div className='App-info'>
           <p>Embed chord notation of your strings instrument inside your react powered web.</p>
           <div className='chords'>
-            <div><Chord className='chord' tunning='standard' name='C' /></div>
+            <div className='chord'><Chord tunning='standard' name='C' type='major' /></div>
           </div>
         </div>
       </div>

@@ -25,9 +25,9 @@
   justify-content: center;
 }
 
-.App-info .chords div {
+.App-info .chord {
   background: white;
-  width: 120px;
+  width: 240px;
 }
 
 @keyframes App-logo-spin {
