@@ -20,6 +20,8 @@
 }
 
 .App-info .chords {
+  margin: auto;
+  width: 80vw;
   display: flex;
   align-items: center;
   justify-content: center;

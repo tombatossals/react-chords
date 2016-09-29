@@ -3,9 +3,9 @@ import Frets from './Frets'
 import Dot from './Dot'
 import instruments from './instruments'
 
-const Chord = ({ instrument, tunning, key, type }) => {
+const Chord = ({ instrument, tunning, keyName, type }) => {
   const i = instruments[instrument]
-  const chord = i.chords[key].find(chord => chord.type === type)
+  const chord = i.chords[keyName].find(chord => chord.type === type)
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -14,7 +14,7 @@ const Chord = ({ instrument, tunning, key, type }) => {
       <g
         transform='translate(5, 15)'>
         <Frets letters />
-        { chord.strings.map((fret, string) => (
+        { chord.frets.map((fret, string) => (
           <Dot key={string} string={string + 1} fret={fret} finger={chord.fingers[string]} />
         ))}
       </g>
@@ -25,14 +25,14 @@ const Chord = ({ instrument, tunning, key, type }) => {
 Chord.propTypes = {
   tunning: React.PropTypes.string,
   instrument: React.PropTypes.string,
-  key: React.PropTypes.string,
+  keyName: React.PropTypes.string,
   type: React.PropTypes.string
 }
 
 Chord.defaultProps = {
   tunning: 'default',
   instrument: 'guitar',
-  key: 'C',
+  keyName: 'C',
   type: 'major'
 }
 

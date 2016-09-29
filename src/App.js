@@ -12,9 +12,11 @@ class App extends Component {
           <h2>React-Chords</h2>
         </div>
         <div className='App-info'>
-          <p>Embed chord notation of your strings instrument inside your react powered web.</p>
+          <p>Embed chord notation of your strings instrument inside your react powered web application.</p>
           <div className='chords'>
-            <div className='chord'><Chord tunning='standard' name='C' type='major' /></div>
+            {[ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ].map(keyName =>
+              <div key={keyName} className='chord'><Chord tunning='standard' keyName={keyName} type='major' /></div>
+            )}
           </div>
         </div>
       </div>
