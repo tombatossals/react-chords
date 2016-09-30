@@ -1,0 +1,30 @@
+.Chord .Open {
+  stroke: #444;
+  fill: #EFEFEF;
+  stroke-width: 0.25;
+}
+
+.Chord .Fret {
+  fill-opacity: 1;
+  fill: #EEE;
+  stroke: #888;
+  stroke-width: 0.25;
+}
+
+.Chord .Finger {
+  font-size: 0.3rem;
+  font-weight: bold;
+  fill: #444;
+  font-family: Verdana;
+  text-anchor: middle;
+  alignment-baseline: baseline;
+}
+
+.Chord .Muted {
+  font-size: 0.4rem;
+  font-weight: bold;
+  fill: #444;
+  font-family: Verdana;
+  text-anchor: middle;
+  alignment-baseline: baseline;
+}

@@ -8,6 +8,7 @@ const Chord = ({ instrument, tunning, keyName, type }) => {
   const chord = i.chords[keyName].find(chord => chord.type === type)
   return (
     <svg
+      className='Chord'
       xmlns='http://www.w3.org/2000/svg'
       preserveAspectRatio='xMinYMin meet'
       viewBox='0 0 60 80'>
