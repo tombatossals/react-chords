@@ -3,16 +3,14 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 8vw;
-  margin: 4vw 2vw;
+  margin: 1vw 2vw;
 }
 
 .App-header {
   color: #222;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .App-info {
@@ -30,9 +28,4 @@
 .App-info .chord {
   background: white;
   width: 240px;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

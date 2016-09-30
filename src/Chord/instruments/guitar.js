@@ -9,115 +9,115 @@ export default {
       position: 0,
       frets: [ 0, 1, 0, 2, 3, -1 ],
       fingers: [ 0, 1, 0, 2, 3, 0 ],
-      bars: []
+      barre: []
     },
     {
       type: '7',
       position: 0,
       frets: [ 0, 1, 3, 2, 3, -1 ],
-      bars: []
+      barre: []
     }],
     'D': [{
       type: 'major',
       position: 0,
       frets: [ 2, 3, 2, 0, -1, -1 ],
       fingers: [ 2, 3, 1, 0, 0, 0 ],
-      bars: []
+      barre: []
     },
     {
       type: 'minor',
       position: 0,
       frets: [ 1, 3, 2, 0, -1, -1 ],
-      bars: []
+      barre: []
     },
     {
       type: '7',
       position: 0,
       frets: [ 2, 1, 2, 0, -1, -1 ],
-      bars: []
+      barre: []
     },
     {
       type: 'm7',
       position: 0,
       frets: [ 1, 1, 2, 0, -1, -1 ],
-      bars: []
+      barre: []
     }],
     'E': [{
       type: 'major',
       position: 0,
       frets: [ 0, 0, 1, 2, 2, 0 ],
       fingers: [ 0, 0, 1, 3, 2, 0 ],
-      bars: []
+      barre: []
     },
     {
       type: 'minor',
       position: 0,
       frets: [ 0, 0, 0, 2, 2, 0 ],
-      bars: []
+      barre: []
     },
     {
       type: '7',
       position: 0,
       frets: [ 0, 3, 1, 0, 2, 0 ],
-      bars: []
+      barre: []
     },
     {
       type: 'm7',
       position: 0,
       frets: [ 0, 3, 0, 2, 2, 0 ],
-      bars: []
+      barre: []
     }],
     'F': [{
       type: 'major',
       position: 0,
       frets: [ 1, 1, 2, 3, 3, 1 ],
       fingers: [ 1, 1, 2, 4, 3, 1 ],
-      bars: [{ fret: 1, strings: [ 1, 6 ] }]
+      barre: [{ fret: 1, strings: [ 1, 6 ] }]
     }],
     'G': [{
       type: 'major',
       position: 0,
       frets: [ 3, 3, 0, 0, 2, 3 ],
       fingers: [ 4, 0, 0, 0, 2, 3 ],
-      bars: []
+      barre: []
     },
     {
       type: '7',
       position: 0,
       frets: [ 1, 0, 0, 0, 2, 3 ],
-      bars: []
+      barre: []
     }],
     'A': [{
       type: 'major',
       position: 0,
       frets: [ 0, 2, 2, 2, 0, -1 ],
       fingers: [ 0, 4, 3, 2, 0, 0 ],
-      bars: []
+      barre: []
     },
     {
       type: 'minor',
       position: 0,
       frets: [ 0, 1, 2, 2, 0, -1 ],
-      bars: []
+      barre: []
     },
     {
       type: '7',
       position: 0,
       frets: [ 1, 0, 0, 0, 2, 3 ],
-      bars: []
+      barre: []
     },
     {
       type: 'm7',
       position: 0,
       frets: [ 0, 1, 0, 2, 0, -1 ],
-      bars: []
+      barre: []
     }],
     'B': [{
       type: 'major',
       position: 0,
       frets: [ 2, 4, 4, 4, 2, -1 ],
       fingers: [ 1, 4, 3, 2, 1 ],
-      bars: [{ fret: 2, strings: [ 1, 5 ] }]
+      barre: [{ fret: 2, strings: [ 1, 5 ] }]
     }]
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Chord from './Chord'
-import logo from './logo.svg'
+import guitar from './guitar.svg'
 import './App.css'
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
+          <img src={guitar} className='App-logo' alt='logo' />
           <h2>React-Chords</h2>
         </div>
         <div className='App-info'>

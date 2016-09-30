@@ -25,7 +25,7 @@ const Dot = ({ string, fret, finger }) =>
         r={fret === 0 ? radius['open'] : radius['fret']}
       />
       { finger > 0 &&
-        <text className='Finger' x={stringXYPosition[string - 1]} y={fingerXYPosition[fret]}>{ finger }</text>}
+        <text className='Finger' x={stringXYPosition[string - 1]} y={fingerXYPosition[fret] + 1}>{ finger }</text>}
     </g>)
 
 Dot.propTypes = {

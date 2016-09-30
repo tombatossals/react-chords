@@ -1,6 +1,8 @@
 import React from 'react'
-import Frets from './Frets'
+import Neck from './Neck'
 import Dot from './Dot'
+import Barre from './Barre'
+
 import instruments from './instruments'
 
 const Chord = ({ instrument, tunning, keyName, type }) => {
@@ -14,10 +16,11 @@ const Chord = ({ instrument, tunning, keyName, type }) => {
       viewBox='0 0 60 80'>
       <g
         transform='translate(5, 15)'>
-        <Frets letters />
+        <Neck withLetters />
         { chord.frets.map((fret, string) => (
           <Dot key={string} string={string + 1} fret={fret} finger={chord.fingers[string]} />
         ))}
+        <Barre fret={chord.barre.fret} strings={chord.barre.strings} />
       </g>
     </svg>
   )
