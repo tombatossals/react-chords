@@ -21,11 +21,12 @@
   margin: auto;
   width: 80vw;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
 .App-info .chord {
   background: white;
-  width: 240px;
+  width: 15%;
 }

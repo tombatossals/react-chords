@@ -1,27 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Chord from './Chord'
-import guitar from './guitar.svg'
+import guitarLogo from './guitar.svg'
+import { guitar } from '@tombatossals/chords-db/dist'
+
 import './App.css'
 
-class App extends Component {
-  render () {
-    return (
-      <div className='App'>
-        <div className='App-header'>
-          <img src={guitar} className='App-logo' alt='logo' />
-          <h2>React-Chords</h2>
-        </div>
-        <div className='App-info'>
-          <p>Embed chord notation of your strings instrument inside your react powered web application.</p>
-          <div className='chords'>
-            {[ 'C', 'D', 'E', 'F', 'G', 'A', 'B' ].map(keyName =>
-              <div key={keyName} className='chord'><Chord tunning='standard' keyName={keyName} type='major' /></div>
-            )}
-          </div>
-        </div>
+export default () =>
+  <div className='App'>
+    <div className='App-header'>
+      <img src={guitarLogo} className='App-logo' alt='logo' />
+      <h2>React-Chords</h2>
+    </div>
+    <div className='App-info'>
+      <p>Embed chord notation of your strings instrument inside your react powered web application.</p>
+      <div className='chords'>
+        {guitar.keys.map(key =>
+          guitar.chords[key].map(chord =>
+            <div key={chord.name} className='chord'><Chord tunning={guitar.tunnings['standard']} chord={chord} /></div>
+          )
+        )}
       </div>
-    )
-  }
-}
-
-export default App
+    </div>
+  </div>

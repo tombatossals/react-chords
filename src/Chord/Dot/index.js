@@ -2,8 +2,8 @@ import React from 'react'
 import './styles.css'
 
 const stringXYPosition = [ 50, 40, 30, 20, 10, 0 ]
-const fretXYPosition = [ -4, 6.5, 18, 30, 42 ]
-const fingerXYPosition = [ -3, 7.5, 19, 31, 43 ]
+const fretXYPosition = [ -4, 6.5, 18, 30, 42, 54 ]
+const fingerXYPosition = [ -3, 7.5, 19, 31, 43, 55 ]
 
 const radius = {
   open: 2,
@@ -14,7 +14,7 @@ const Dot = ({ string, fret, finger }) =>
   fret === -1
     ? <text
       className='Muted'
-      x={stringXYPosition[string]}
+      x={stringXYPosition[string - 1]}
       y='-2'
       >x</text>
     : (<g>
@@ -31,7 +31,7 @@ const Dot = ({ string, fret, finger }) =>
 Dot.propTypes = {
   string: React.PropTypes.number,
   fret: React.PropTypes.oneOf([ -1 ].concat([...Array(fretXYPosition.length).keys()])),
-  finger: React.PropTypes.oneOf([ 0, 1, 2, 3, 4 ])
+  finger: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5 ])
 }
 
 Dot.defaultProps = {
