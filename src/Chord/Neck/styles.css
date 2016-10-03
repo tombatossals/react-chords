@@ -18,3 +18,9 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.FirstFret {
+  font-size: 0.2rem;
+  fill: #444;
+  font-family: Verdana;
+}

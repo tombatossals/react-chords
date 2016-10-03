@@ -5,7 +5,6 @@ import Barre from './Barre'
 import './styles.css'
 
 const Chord = ({ chord, tunning }) => {
-  const maxFret = Math.max(...chord.frets) < 5 ? 4 : 5
   return chord
     ? <svg
       className='Chord'
@@ -18,7 +17,7 @@ const Chord = ({ chord, tunning }) => {
       </g>
       <g
         transform='translate(5, 22)'>
-        <Neck withLetters tunning={tunning} frets={maxFret < 5 ? 4 : 5} />
+        <Neck withLetters tunning={tunning} firstFret={chord.position} />
         {chord.barres.map((barre, index) => {
           return barre && <Barre key={index} fret={barre.fret} strings={barre.strings} />
         })}
