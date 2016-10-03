@@ -16,7 +16,7 @@ export default () =>
       <div className='chords'>
         {guitar.keys.map(key =>
           guitar.chords[key].map(chord =>
-            <div key={chord.name} className='chord'><Chord tunning={guitar.tunnings['standard']} chord={chord} /></div>
+            <div key={chord.name} className='chord'><Chord tunning={guitar.tunnings['standard']} chord={chord} version={3} /></div>
           )
         )}
       </div>
