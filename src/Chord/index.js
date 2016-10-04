@@ -23,13 +23,13 @@ const Chord = ({ chord, tunning, version }) => {
     className='Chord'
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMinYMin meet'
-    viewBox='0 0 64 100'>
+    viewBox='0 0 68 100'>
     <g className='Title' transform='translate(30, 10)'>
       <text className='Key' x='-7' y='0'>{chord.key}</text>
       <text className='Type' x='0' y='2'>{chord.suffix}</text>
     </g>
     <g
-      transform='translate(7, 22)'>
+      transform='translate(13, 20)'>
       <Neck withNotesAtTheEnd tunning={tunning} firstFret={position.firstFret} />
       {barres.map((barre, index) => {
         return barre && <Barre key={index} fret={barre.fret} strings={barre.strings} />

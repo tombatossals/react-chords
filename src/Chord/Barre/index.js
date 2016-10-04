@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-const fretXYPosition = [ 2.5, 14, 26, 38 ]
+const fretXYPosition = [ 2, 14, 26, 38 ]
 
 const Barre = ({ strings, fret }) => {
   const x1 = 50 - 10 * (strings[1] - 1)

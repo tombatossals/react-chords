@@ -2,8 +2,8 @@ import React from 'react'
 import './styles.css'
 
 const stringXYPosition = [ 50, 40, 30, 20, 10, 0 ]
-const fretXYPosition = [ -4, 6.5, 18, 30, 42, 54 ]
-const fingerXYPosition = [ -3, 7.5, 19, 31, 43, 55 ]
+const fretXYPosition = [ -4, 6, 18, 30, 42, 54 ]
+const fingerXYPosition = [ -3, 7.75, 19, 31.75, 43, 55 ]
 
 const radius = {
   open: 2,
@@ -25,7 +25,7 @@ const Dot = ({ string, fret, finger }) =>
         r={fret === 0 ? radius['open'] : radius['fret']}
       />
       { finger > 0 &&
-        <text className='Finger' x={stringXYPosition[string - 1]} y={fingerXYPosition[fret] + 1}>{ finger }</text>}
+        <text className='Finger' x={stringXYPosition[string - 1]} y={fingerXYPosition[fret]}>{ finger }</text>}
     </g>)
 
 Dot.propTypes = {
