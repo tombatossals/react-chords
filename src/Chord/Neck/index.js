@@ -23,7 +23,7 @@ const Neck = ({ withNotesAtTheEnd, tunning, firstFret }) => {
 Neck.propTypes = {
   withNotesAtTheEnd: React.PropTypes.bool,
   tunning: React.PropTypes.array,
-  firstFret: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5 ])
+  firstFret: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ])
 }
 
 Neck.defaultProps = {

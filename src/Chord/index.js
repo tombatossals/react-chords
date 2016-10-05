@@ -53,7 +53,7 @@ Chord.propTypes = {
 }
 
 Chord.defaultProps = {
-  tunning: 'default',
+  tunning: [ 'E', 'B', 'G', 'D', 'A', 'E' ],
   instrument: 'guitar',
   version: 1
 }

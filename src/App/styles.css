@@ -10,23 +10,42 @@
 .App-Menu {
   list-style: none;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-Menu li {
   margin-right: 1em;
 }
 
+.App-Menu a {
+  text-decoration: none;
+  color: #444;
+}
+
+.App-Menu a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
 .App-Header {
   color: #222;
   display: flex;
+  text-align: left;
   align-items: center;
 }
 
-.App-info {
-  font-size: large;
+.App-Header > .Title > h2 {
+  margin-bottom: 0.3em;
 }
 
-.App-info .chords {
+.App-Header > .Title > p {
+  border-top: 1px solid #222;
+  margin: 0;
+  padding-top: .5em;
+}
+
+.App-Info .Chords {
   margin: auto;
   width: 80vw;
   display: flex;
@@ -35,7 +54,18 @@
   justify-content: center;
 }
 
-.App-info .chord {
+.App-Info .Chords > .Chord {
   background: white;
   width: 15%;
+  cursor: pointer;
+}
+
+.App-Info a {
+  text-decoration: none;
+  color: #444;
+}
+
+.App-Info a:hover {
+  color: red;
+  text-decoration: underline;
 }
