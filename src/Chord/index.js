@@ -8,14 +8,18 @@ const Chord = ({ chord, tunning, version }) => {
   if (chord.positions.length < version) {
     return null
   }
+
   const position = chord.positions[version - 1]
+  const firstFret = position.firstFret
+    ? position.firstFret
+    : Math.max(...position.frets) > 4 ? Math.max(...position.frets) - 3 : 1
+
   const frets = position.frets.map(fret =>
-    position.firstFret > 1 ? fret > 0 ? fret - position.firstFret + 1 : fret : fret
+    firstFret > 1 ? fret > 0 ? fret - firstFret + 1 : fret : fret
   )
 
-  console.log(chord)
   const barres = position.barres.map(barre => ({
-    fret: position.firstFret > 1 ? barre.fret - position.firstFret + 1 : barre.fret,
+    fret: firstFret > 1 ? barre.fret - firstFret + 1 : barre.fret,
     strings: barre.strings.slice()
   }))
 
@@ -29,8 +33,8 @@ const Chord = ({ chord, tunning, version }) => {
       <text className='Type' x='0' y='2'>{chord.suffix}</text>
     </g>
     <g
-      transform='translate(13, 20)'>
-      <Neck withNotesAtTheEnd tunning={tunning} firstFret={position.firstFret} />
+      transform='translate(7, 22)'>
+      <Neck withNotesAtTheEnd tunning={tunning} firstFret={firstFret} />
       {barres.map((barre, index) => {
         return barre && <Barre key={index} fret={barre.fret} strings={barre.strings} />
       })}
