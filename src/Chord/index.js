@@ -33,7 +33,7 @@ const Chord = ({ chord, tunning, version }) => {
       <text className='Type' x='0' y='2'>{chord.suffix}</text>
     </g>
     <g
-      transform='translate(7, 22)'>
+      transform='translate(13, 22)'>
       <Neck withNotesAtTheEnd tunning={tunning} firstFret={firstFret} />
       {barres.map((barre, index) => {
         return barre && <Barre key={index} fret={barre.fret} strings={barre.strings} />
