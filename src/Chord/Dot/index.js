@@ -3,7 +3,7 @@ import './styles.css'
 
 const stringXYPosition = [ 50, 40, 30, 20, 10, 0 ]
 const fretXYPosition = [ -4, 6, 18, 30, 42, 54 ]
-const fingerXYPosition = [ -3, 7.75, 19, 31.75, 43, 55 ]
+const fingerXYPosition = [ -3, 7.75, 19.75, 31.75, 43, 55 ]
 
 const radius = {
   open: 2,

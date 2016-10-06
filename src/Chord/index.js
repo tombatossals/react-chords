@@ -12,16 +12,13 @@ const Chord = ({ chord, tunning, version }) => {
   const position = chord.positions[version - 1]
   const firstFret = position.firstFret
     ? position.firstFret
-    : Math.max(...position.frets) > 4 ? Math.max(...position.frets) - 3 : 1
+    : Math.max(...position.frets) > 4 ? Math.min(...position.frets.filter(f => f > 0)) : 1
 
   const frets = position.frets.map(fret =>
     firstFret > 1 ? fret > 0 ? fret - firstFret + 1 : fret : fret
   )
 
-  const barres = position.barres.map(barre => ({
-    fret: firstFret > 1 ? barre.fret - firstFret + 1 : barre.fret,
-    strings: barre.strings.slice()
-  }))
+  const barres = position.barres.map(barre => firstFret > 1 ? barre.fret - firstFret + 1 : barre.fret)
 
   return <svg
     className='Chord'
@@ -35,9 +32,8 @@ const Chord = ({ chord, tunning, version }) => {
     <g
       transform='translate(13, 22)'>
       <Neck withNotesAtTheEnd tunning={tunning} firstFret={firstFret} />
-      {barres.map((barre, index) => {
-        return barre && <Barre key={index} fret={barre.fret} strings={barre.strings} />
-      })}
+      {barres.map((barre, index) => <Barre key={index} barre={barre} frets={frets} />)}
+
       { frets.map((fret, string) => (
         <Dot key={string} string={string + 1} fret={fret} finger={position.fingers && position.fingers[string]} />
       ))}
