@@ -7,12 +7,12 @@ import './styles.css'
 const Keys = () => {
   return (
     <div className='KeyChords'>
-      {guitar.keys.map(keyName =>
+      {guitar.main.keys.map(keyName =>
         <div className='Key' key={keyName}>
           <h2>{keyName}</h2>
-          {guitar.chords[keyName].slice(0, 1).map(chord =>
+          {guitar.chords[keyName] && guitar.chords[keyName].slice(0, 1).map(chord =>
             <Link to={`/guitar/chord/${chord.key}`} key={chord.suffix} className='Chord'>
-              <Chord tunning={guitar.tunnings['standard']} chord={chord} version={1} />
+              <Chord tunning={guitar.main.tunnings['standard']} chord={chord} version={1} />
             </Link>
           )}
         </div>

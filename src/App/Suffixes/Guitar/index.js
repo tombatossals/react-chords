@@ -8,7 +8,7 @@ const Suffixes = ({ params }) => {
     <div className='Chords'>
       {guitar.chords[params.key].map(chord =>
         <Link to={`/guitar/chord/${chord.key}${chord.suffix}`} key={chord.suffix} className='Chord'>
-          <Chord tunning={guitar.tunnings['standard']} chord={chord} version={1} />
+          <Chord tunning={guitar.main.tunnings['standard']} chord={chord} version={1} />
         </Link>
       )}
     </div>)

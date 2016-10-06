@@ -1,3 +1,10 @@
+## 0.0.3 (October 06, 2016)
+
+### Webapp
+
+* React-router navigation
+* Automatically detect barre chords
+
 ## 0.0.2 (October 03, 2016)
 
 ### SVG Chord diagram
