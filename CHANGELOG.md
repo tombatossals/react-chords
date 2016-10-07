@@ -1,3 +1,10 @@
+## 0.0.4 (October 07, 2016)
+
+### Webapp
+
+* Better autodetection of barre chords
+* Accepts chord without finger information
+
 ## 0.0.3 (October 06, 2016)
 
 ### Webapp

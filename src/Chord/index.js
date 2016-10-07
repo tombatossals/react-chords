@@ -32,7 +32,7 @@ const Chord = ({ chord, tunning, version }) => {
     <g
       transform='translate(13, 22)'>
       <Neck withNotesAtTheEnd tunning={tunning} firstFret={firstFret} />
-      {barres && barres.map((barre, index) => <Barre key={index} barre={barre} frets={frets} fingers={position.fingers} />)}
+      {barres && barres.map((barre, index) => <Barre key={index} barre={barre} frets={frets} />)}
 
       { frets.map((fret, string) => (
         <Dot key={string} string={string + 1} fret={fret} finger={position.fingers && position.fingers[string]} />

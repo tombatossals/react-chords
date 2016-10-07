@@ -3,10 +3,18 @@ import './styles.css'
 
 const fretXYPosition = [ 2, 14, 26, 38 ]
 
-const Barre = ({ barre, frets, fingers }) => {
+const lastValidBarreString = (frets, barre) => {
+  const lastString = frets.lastIndexOf(barre)
+
+  return frets[lastString - 1] > 0
+    ? lastString + 1
+    : frets.slice(0, lastString).lastIndexOf(barre) + 1
+}
+
+const Barre = ({ barre, frets }) => {
   const string1 = frets.indexOf(barre) + 1
-  const finger = fingers[string1 - 1]
-  const string2 = fingers.map(c => c === finger ? c : -1).lastIndexOf(finger) + 1
+  const string2 = lastValidBarreString(frets, barre)
+
   const x1 = 50 - 10 * (string2 - 1)
   const x2 = (string2 - string1) * 10
   const y = fretXYPosition[barre - 1]
@@ -16,7 +24,6 @@ const Barre = ({ barre, frets, fingers }) => {
 
 Barre.propTypes = {
   frets: React.PropTypes.array,
-  fingers: React.PropTypes.array,
   barre: React.PropTypes.number
 }
 
