@@ -26,7 +26,7 @@ const App = () => {
           <Match exactly pattern='/react-chords/:instrument' component={Keys} />
           <Match exactly pattern='/react-chords/:instrument/chord/:key([EFGABCD])' component={Suffixes} />
           <Match exactly pattern='/react-chords/:instrument/chord/:key([EFGABCD]):suffix' component={Variations} />
-          <Match exactly pattern='/react-chords' render={() => <Redirect to='/guitar' />} />
+          <Match exactly pattern='/react-chords' render={() => <Redirect to='/react-chords/guitar' />} />
           <Miss component={NotFound} />
         </div>
       </div>
