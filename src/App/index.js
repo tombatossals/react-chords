@@ -14,19 +14,19 @@ const App = () => {
         <div className='App-Header'>
           <Link to='/'><img src={guitarLogo} className='App-Logo' alt='logo' /></Link>
           <div className='Title'>
-            <h2><Link to='/'>React-Chords</Link></h2>
+            <h2><Link to='/react-chords'>React-Chords</Link></h2>
             <p>Embed chord notation of your strings instrument inside your react powered web application.</p>
           </div>
         </div>
         <ul className='App-Menu'>
-          <li><Link to='/guitar'>Guitar chords</Link></li>
-          <li><Link to='/ukelele'>Ukelele chords</Link></li>
+          <li><Link to='/react-chords/guitar'>Guitar chords</Link></li>
+          <li><Link to='/react-chords/ukelele'>Ukelele chords</Link></li>
         </ul>
         <div className='App-Info'>
-          <Match exactly pattern='/:instrument' component={Keys} />
-          <Match exactly pattern='/:instrument/chord/:key([EFGABCD])' component={Suffixes} />
-          <Match exactly pattern='/:instrument/chord/:key([EFGABCD]):suffix' component={Variations} />
-          <Match exactly pattern='/' render={() => <Redirect to='/guitar' />} />
+          <Match exactly pattern='/react-chords/:instrument' component={Keys} />
+          <Match exactly pattern='/react-chords/:instrument/chord/:key([EFGABCD])' component={Suffixes} />
+          <Match exactly pattern='/react-chords/:instrument/chord/:key([EFGABCD]):suffix' component={Variations} />
+          <Match exactly pattern='/react-chords' render={() => <Redirect to='/guitar' />} />
           <Miss component={NotFound} />
         </div>
       </div>

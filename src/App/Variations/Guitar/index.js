@@ -7,7 +7,7 @@ const Variations = ({ params }) => {
   const chord = guitar.chords[params.key].find(chord => chord.suffix === params.suffix)
   return (
     <div>
-      <h2><Link to={`/${params.instrument}/chord/${params.key}`}>Return to key {params.key}</Link></h2>
+      <h2><Link to={`/react-chords/${params.instrument}/chord/${params.key}`}>Return to key {params.key}</Link></h2>
       <div className='Chords'>
         {chord.positions.map((position, index) =>
           <Chord key={index} chord={chord} version={index + 1} />)}
