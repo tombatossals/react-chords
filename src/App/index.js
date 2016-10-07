@@ -12,9 +12,9 @@ const App = () => {
     <Router>
       <div className='App'>
         <div className='App-Header'>
-          <img src={guitarLogo} className='App-Logo' alt='logo' />
+          <Link to='/'><img src={guitarLogo} className='App-Logo' alt='logo' /></Link>
           <div className='Title'>
-            <h2>React-Chords</h2>
+            <h2><Link to='/'>React-Chords</Link></h2>
             <p>Embed chord notation of your strings instrument inside your react powered web application.</p>
           </div>
         </div>
