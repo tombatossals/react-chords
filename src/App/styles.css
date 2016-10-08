@@ -31,8 +31,8 @@
 .App-Header {
   color: #222;
   display: flex;
-  text-align: left;
   align-items: center;
+  justify-content: center;
 }
 
 .App-Header > .Title > h2 {
@@ -48,6 +48,10 @@
   border-top: 1px solid #222;
   margin: 0;
   padding-top: .5em;
+}
+
+.App-Header a:hover {
+  color: red;
 }
 
 .App-Info .Chords {

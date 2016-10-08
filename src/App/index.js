@@ -12,10 +12,10 @@ const App = () => {
     <Router>
       <div className='App'>
         <div className='App-Header'>
-          <Link to='/'><img src={guitarLogo} className='App-Logo' alt='logo' /></Link>
+          <Link to='/react-chords'><img src={guitarLogo} className='App-Logo' alt='logo' /></Link>
           <div className='Title'>
-            <h2><Link to='/react-chords'>React-Chords</Link></h2>
-            <p>Embed chord notation of your strings instrument inside your react powered web application.</p>
+            <h2><Link to='/react-chords'>Chords database</Link></h2>
+            <p>All the chords for your string instruments, beautifully rendered</p>
           </div>
         </div>
         <ul className='App-Menu'>

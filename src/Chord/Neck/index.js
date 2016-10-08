@@ -9,7 +9,7 @@ const Neck = ({ withNotesAtTheEnd, tunning, firstFret }) => {
          M 0 0 V 48 M 10 0 V 48 M 20 0 V 48 M 30 0 V 48 M 40 0 V 48 M 50 0 V 48' />
     { firstFret === 1
       ? <path className='Nut' d='M 0 0 H 50' />
-      : <text className='FirstFret' x='-11' y='7'>{firstFret}fr</text> }
+      : <text className='FirstFret' x={firstFret > 9 ? -12 : -7} y='7'>{firstFret}fr</text> }
     { withNotesAtTheEnd &&
       <g>
         { tunning.map((note, index) =>
