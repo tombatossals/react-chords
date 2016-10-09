@@ -1,8 +1,9 @@
 import React from 'react'
 import Chord from '../../../Chord'
 import { Link } from 'react-router'
-import { guitar } from '@tombatossals/chords-db/dist'
 import './styles.css'
+
+const guitar = require('@tombatossals/chords-db/lib/guitar.json')
 
 const Keys = () => {
   return (

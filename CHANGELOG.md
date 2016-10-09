@@ -1,4 +1,8 @@
-## 0.0.4 (October 07, 2016)
+## 0.0.5 (October 07, 2016)
+
+### Webapp
+
+* Easier and better render of chords with the JSON db-chords
 
 ### Webapp
 

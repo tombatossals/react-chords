@@ -6,7 +6,7 @@ const fretXYPosition = [ 2, 14, 26, 38 ]
 const lastValidBarreString = (frets, barre) => {
   const lastString = frets.lastIndexOf(barre)
 
-  return frets[lastString - 1] > 0
+  return frets[lastString - 1] >= barre
     ? lastString + 1
     : frets.slice(0, lastString).lastIndexOf(barre) + 1
 }

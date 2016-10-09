@@ -1,7 +1,8 @@
 import React from 'react'
 import Chord from '../../../Chord'
 import { Link } from 'react-router'
-import { guitar } from '@tombatossals/chords-db/dist'
+
+const guitar = require('@tombatossals/chords-db/lib/guitar.json')
 
 const Variations = ({ params }) => {
   const chord = guitar.chords[params.key].find(chord => chord.suffix === params.suffix)
