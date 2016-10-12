@@ -1,3 +1,9 @@
+## 0.0.6 (October 12, 2016)
+
+### Webapp
+
+* Able to render sharp chords
+
 ## 0.0.5 (October 09, 2016)
 
 ### Webapp

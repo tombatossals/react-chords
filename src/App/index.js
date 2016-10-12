@@ -24,8 +24,10 @@ const App = () => {
         </ul>
         <div className='App-Info'>
           <Match exactly pattern='/react-chords/:instrument' component={Keys} />
-          <Match exactly pattern='/react-chords/:instrument/chord/:key([EFGABCD])' component={Suffixes} />
-          <Match exactly pattern='/react-chords/:instrument/chord/:key([EFGABCD]):suffix' component={Variations} />
+          <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])' component={Suffixes} />
+          <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix' component={Variations} />
+          <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD]sharp)' component={Suffixes} />
+          <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD]sharp)/:suffix' component={Variations} />
           <Match exactly pattern='/react-chords' render={() => <Redirect to='/react-chords/guitar' />} />
           <Miss component={NotFound} />
         </div>

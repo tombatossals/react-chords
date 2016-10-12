@@ -8,15 +8,13 @@ const Chord = ({ chord, tunning, version }) => {
   if (chord.positions.length < version) return null
 
   const position = chord.positions[version - 1]
-  console.log(position)
   return <svg
     className='Chord'
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMinYMin meet'
     viewBox='0 0 68 100'>
-    <g className='Title' transform='translate(30, 10)'>
-      <text className='Key' x='-7' y='0'>{chord.key}</text>
-      <text className='Type' x='0' y='2'>{chord.suffix}</text>
+    <g transform='translate(37, 10)'>
+      <text className='Title'><tspan className='Key'>{chord.key}</tspan><tspan className='Type'>{chord.suffix}</tspan></text>
     </g>
     <g
       transform='translate(13, 22)'>

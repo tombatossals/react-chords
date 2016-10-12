@@ -7,3 +7,7 @@
   font-size: 0.4rem;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.Chord .Title {
+  text-anchor: middle;
+}

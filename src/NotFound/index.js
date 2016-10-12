@@ -2,7 +2,7 @@ import React from 'react'
 
 const NotFound = ({ location }) => (
   <div>
-    <h2>Following page is not found: {location.pathname}</h2>
+    <h2>404 Not Found</h2>
   </div>
 )
 
