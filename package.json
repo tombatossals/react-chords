@@ -7,7 +7,7 @@
     "eslint-config-standard-react": "^4.2.0",
     "gh-pages": "^0.11.0",
     "react-scripts": "0.6.1",
-    "standard": "^8.3.0"
+    "standard": "^8.4.0"
   },
   "dependencies": {
     "@tombatossals/chords-db": "0.1.4",

@@ -10,7 +10,7 @@ const Keys = () => {
     <div className='KeyChords'>
       {guitar.main.keys.map(k => k.replace('#', 'sharp')).map(keyName =>
         <div className='Key' key={keyName}>
-          <h2>{keyName}</h2>
+          <h2>{keyName.replace('sharp', '#')}</h2>
           {guitar.chords[keyName] && guitar.chords[keyName].slice(0, 1).map(chord =>
             <Link to={`/react-chords/guitar/chords/${keyName}`} key={chord.suffix} className='Chord'>
               <Chord tunning={guitar.main.tunnings['standard']} chord={chord} version={1} />
