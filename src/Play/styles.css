@@ -6,7 +6,7 @@
   width: 32px;
   display: inline-block;
   vertical-align: middle;
-  margin-right: .3em;
+  margin-left: .3em;
 }
 
 .Play ul {
@@ -17,7 +17,7 @@
 .Play span {
   cursor: pointer;
   padding: .3em .5em;
-  font-size: .5em;
+  font-size: .8em;
 }
 
 .Play span.active {

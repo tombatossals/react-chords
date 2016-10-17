@@ -12,7 +12,7 @@ const Variations = ({ params }) => {
       <h2><Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>Return to key {params.key.replace('sharp', '#')}</Link></h2>
       <div className='Chords'>
         {chord.positions.map((position, index) =>
-          <div key={index}>
+          <div key={index} className='Chord'>
             <Chord key={index} chord={chord} version={index + 1} />
             <Play chord={position.midi} />
           </div>

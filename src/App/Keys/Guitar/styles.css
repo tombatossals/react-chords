@@ -1,6 +1,5 @@
 .App-Info > .KeyChords {
   margin: auto;
-  width: 80vw;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -9,6 +8,6 @@
 
 .App-Info > .KeyChords .Chord {
   background: white;
-  width: 50%;
+  width: 100%;
   cursor: pointer;
 }
