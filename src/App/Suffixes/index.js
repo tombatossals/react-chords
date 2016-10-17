@@ -1,10 +1,24 @@
 import React from 'react'
-import Guitar from './Guitar'
+import Chord from '../../Chord'
+import { Link } from 'react-router'
+import Play from '../../Play'
+
+const getDatabase = instrument =>
+  require(`@tombatossals/chords-db/lib/${instrument}.json`)
 
 const Suffixes = ({ params }) => {
-  return params.instrument === 'guitar'
-    ? <Guitar params={params} />
-    : null
+  const instrument = getDatabase(params.instrument)
+  return (
+    <div className='Chords'>
+      {instrument.chords[params.key].map(chord =>
+        <div key={chord.suffix} className='Chord'>
+          <Link to={`/react-chords/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}`} key={chord.suffix} className='Chord'>
+            <Chord tunning={instrument.main.tunnings['standard']} chord={chord} version={1} />
+          </Link>
+          <Play chord={chord.positions[0].midi} />
+        </div>
+      )}
+    </div>)
 }
 
 Suffixes.propTypes = {
