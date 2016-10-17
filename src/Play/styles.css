@@ -1,0 +1,27 @@
+.Play {
+  cursor: pointer;
+}
+
+.Play img {
+  width: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .3em;
+}
+
+.Play ul {
+  margin: 0;
+  padding: 0;
+}
+
+.Play span {
+  cursor: pointer;
+  padding: .3em .5em;
+  font-size: .5em;
+}
+
+.Play span.active {
+  background: #75A6D5;
+  color: white;
+  border-radius: 5px;
+}

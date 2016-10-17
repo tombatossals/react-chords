@@ -1,11 +1,10 @@
 import React from 'react'
 import Guitar from './Guitar'
 
-const Keys = ({ params }) => {
-  return params.instrument === 'guitar'
-    ? <Guitar params={params} />
+const Keys = (props) =>
+  props.params.instrument === 'guitar'
+    ? <Guitar />
     : null
-}
 
 Keys.propTypes = {
   params: React.PropTypes.object

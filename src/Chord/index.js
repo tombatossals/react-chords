@@ -12,7 +12,7 @@ const Chord = ({ chord, tunning, version }) => {
     className='Chord'
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMinYMin meet'
-    viewBox='0 0 68 100'>
+    viewBox='0 0 68 80'>
     <g transform='translate(37, 10)'>
       <text className='Title'><tspan className='Key'>{chord.key}</tspan><tspan className='Type'>{chord.suffix}</tspan></text>
     </g>
