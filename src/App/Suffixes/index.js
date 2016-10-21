@@ -13,7 +13,7 @@ const Suffixes = ({ params }) => {
       {instrument.chords[params.key].map(chord =>
         <div key={chord.suffix} className='Chord'>
           <Link to={`/react-chords/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}`} key={chord.suffix} className='Chord'>
-            <Chord tunning={instrument.main.tunnings['standard']} chord={chord} version={1} />
+            <Chord instrument={instrument} chord={chord} version={1} />
           </Link>
           <Play chord={chord.positions[0].midi} />
         </div>

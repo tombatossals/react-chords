@@ -4,7 +4,7 @@ import Dot from './Dot'
 import Barre from './Barre'
 import './styles.css'
 
-const Chord = ({ chord, tunning, version }) => {
+const Chord = ({ chord, instrument, version }) => {
   if (chord.positions.length < version) return null
 
   const position = chord.positions[version - 1]
@@ -18,7 +18,12 @@ const Chord = ({ chord, tunning, version }) => {
     </g>
     <g
       transform='translate(13, 22)'>
-      <Neck withNotesAtTheEnd tunning={tunning} frets={position.frets} baseFret={position.baseFret} />
+      <Neck withNotesAtTheEnd
+        tunning={instrument.main.tunnings.standard}
+        strings={instrument.main.strings}
+        frets={position.frets}
+        baseFret={position.baseFret}
+      />
       {position.barres.map((barre, index) => <Barre key={index} barre={barre} frets={position.frets} />)}
 
       { position.frets.map((fret, string) => (
@@ -30,14 +35,11 @@ const Chord = ({ chord, tunning, version }) => {
 
 Chord.propTypes = {
   chord: React.PropTypes.any,
-  tunning: React.PropTypes.array,
-  instrument: React.PropTypes.string,
+  instrument: React.PropTypes.object,
   version: React.PropTypes.number
 }
 
 Chord.defaultProps = {
-  tunning: [ 'E', 'B', 'G', 'D', 'A', 'E' ],
-  instrument: 'guitar',
   version: 1
 }
 
