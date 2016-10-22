@@ -6,8 +6,7 @@
   justify-content: center;
 }
 
-.App-Info > .KeyChords .Chord {
+.App-Info > .KeyChords .ChordLink {
   background: white;
-  width: 100%;
   cursor: pointer;
 }

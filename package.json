@@ -1,7 +1,7 @@
 {
   "name": "@tombatossals/react-chords",
   "description": "React library for easily generate string instruments SVG chord diagrams",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "devDependencies": {
     "eslint-config-standard-react": "^4.2.0",
@@ -13,7 +13,7 @@
     "@tombatossals/chords-db": "0.1.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^4.0.0-alpha.4",
+    "react-router": "^4.0.0-alpha.5",
     "soundfont-player": "^0.10.5"
   },
   "scripts": {

@@ -11,3 +11,7 @@
 .Chord .Title {
   text-anchor: middle;
 }
+
+.Chord {
+  width: 100%;
+}

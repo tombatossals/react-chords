@@ -1,28 +1,41 @@
 import React from 'react'
 import './styles.css'
 
+const offsets = {
+  4: {
+    x: 10,
+    y: 10,
+    length: 40
+  },
+  6: {
+    x: 0,
+    y: 0,
+    length: 50
+  }
+}
+
 const getNeckHorizonalLine = (pos, strings) =>
-  `M 0 ${12 * (pos + 1)} H ${(strings - 1) * 10}`
+  `M ${offsets[strings].x} ${12 * pos} H ${offsets[strings].length}`
 
 const getNeckVerticalLine = (pos, strings) =>
-  `M ${pos * 10} 0 V 48`
+  `M ${offsets[strings].y + pos * 10} 0 V 48`
 
-const getNeckPath = strings =>
-  Array(strings).fill().map((_, pos) => getNeckHorizonalLine(pos, strings)).join(' ').concat(
+const getNeckPath = (strings, fretsOnChord) =>
+  Array(fretsOnChord).fill().map((_, pos) => getNeckHorizonalLine(pos, strings)).join(' ').concat(
     Array(strings).fill().map((_, pos) => getNeckVerticalLine(pos, strings)).join(' '))
 
-const Neck = ({ withNotesAtTheEnd, tunning, frets, strings, baseFret }) => {
+const Neck = ({ withNotesAtTheEnd, tunning, frets, strings, fretsOnChord, baseFret }) => {
   return <g>
     <path
       className='Neck'
-      d={getNeckPath(strings)} />
+      d={getNeckPath(strings, fretsOnChord)} />
     { baseFret === 1
-      ? <path className='Nut' d={`M 0 0 H ${(strings - 1) * 10}`} />
+      ? <path className='Nut' d={`M ${offsets[strings].x} 0 H ${offsets[strings].length}`} />
       : <text className='BaseFret' x={frets[5] === 1 ? (baseFret > 9 ? -12 : -9) : (baseFret > 9 ? -8 : -6)} y='7'>{baseFret}fr</text> }
     { withNotesAtTheEnd &&
       <g>
         { tunning.map((note, index) =>
-          <text key={index} className='Note' x={index * 10} y='56'>{note}</text>
+          <text key={index} className='Note' x={offsets[strings].x + index * 10} y='56'>{note}</text>
         )}
       </g>
     }
@@ -34,7 +47,8 @@ Neck.propTypes = {
   tunning: React.PropTypes.array,
   frets: React.PropTypes.array,
   strings: React.PropTypes.number.isRequired,
-  baseFret: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ])
+  baseFret: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]),
+  fretsOnChord: React.PropTypes.number.isRequired
 }
 
 Neck.defaultProps = {

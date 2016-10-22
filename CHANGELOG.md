@@ -1,3 +1,9 @@
+## 0.0.7 (October 22, 2016)
+
+### Webapp
+
+* Able to render chords with different strings and frets
+
 ## 0.0.6 (October 12, 2016)
 
 ### Webapp

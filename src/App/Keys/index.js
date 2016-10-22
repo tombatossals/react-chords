@@ -9,7 +9,6 @@ const getDatabase = instrument =>
 
 const Keys = ({ params }) => {
   const instrument = getDatabase(params.instrument)
-  console.log(instrument)
   return (
     <div className='KeyChords'>
       {instrument.main.keys.map(k => k.replace('#', 'sharp')).map(keyName =>
@@ -17,7 +16,7 @@ const Keys = ({ params }) => {
           <h2>{keyName.replace('sharp', '#')}</h2>
           {instrument.chords[keyName] && instrument.chords[keyName].slice(0, 1).map(chord =>
             <div key={chord.suffix}>
-              <Link to={`/react-chords/${params.instrument}/chords/${keyName}`} className='Chord'>
+              <Link to={`/react-chords/${params.instrument}/chords/${keyName}`} className='ChordLink'>
                 <Chord instrument={instrument} chord={chord} version={1} />
               </Link>
               <Play chord={chord.positions[0].midi} />

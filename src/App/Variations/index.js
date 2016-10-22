@@ -15,7 +15,7 @@ const Variations = ({ params }) => {
       <div className='Chords'>
         {chord.positions.map((position, index) =>
           <div key={index} className='Chord'>
-            <Chord key={index} chord={chord} version={index + 1} />
+            <Chord key={index} chord={chord} instrument={instrument} version={index + 1} />
             <Play chord={position.midi} />
           </div>
         )}
