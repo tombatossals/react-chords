@@ -6,11 +6,11 @@
   "devDependencies": {
     "eslint-config-standard-react": "^4.2.0",
     "gh-pages": "^0.11.0",
-    "react-scripts": "0.6.1",
+    "react-scripts": "0.7.0",
     "standard": "^8.4.0"
   },
   "dependencies": {
-    "@tombatossals/chords-db": "0.1.6",
+    "@tombatossals/chords-db": "0.1.8",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^4.0.0-alpha.5",
