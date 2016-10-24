@@ -4,7 +4,7 @@ import Play from '../../Play'
 import { Link } from 'react-router'
 import './styles.css'
 
-const getDatabase = instrument =>
+const getDatabase = (instrument = 'guitar') =>
   require(`@tombatossals/chords-db/lib/${instrument}.json`)
 
 const Keys = ({ params }) => {

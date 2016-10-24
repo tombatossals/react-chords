@@ -26,10 +26,10 @@ const App = () =>
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])' component={Suffixes} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix' component={Variations} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)' component={Suffixes} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([EAB]b)' component={Suffixes} />
+        <Match exactly pattern='/react-chords/:instrument/chords/:key([DEAB]b)' component={Suffixes} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix' component={Variations} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([EAB]b)/:suffix' component={Variations} />
         <Match exactly pattern='/react-chords' render={() => <Redirect to='/react-chords/guitar' />} />
+        <Match exactly pattern='/' render={() => <Redirect to='/react-chords/guitar' />} />
         <Miss component={NotFound} />
       </div>
     </div>
