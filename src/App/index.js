@@ -22,18 +22,17 @@ const App = () =>
         <li><Link to='/react-chords/ukelele'>Ukelele chords</Link></li>
       </ul>
       <div className='App-Info'>
-        <Match exactly pattern='/react-chords/:instrument' component={Keys} />
+        <Match exactly pattern='/react-chords/:instrument(guitar|ukelele)' component={Keys} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])' component={Suffixes} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix' component={Variations} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)' component={Suffixes} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([DEAB]b)' component={Suffixes} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix' component={Variations} />
-        <Match exactly pattern='/react-chords' render={() => <Redirect to='/react-chords/guitar' />} />
-        <Match exactly pattern='/' render={() => <Redirect to='/react-chords/guitar' />} />
+        <Match exactly pattern='/react-chords(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
+        <Match exactly pattern='(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
         <Miss component={NotFound} />
       </div>
     </div>
   </Router>
-
 
 export default App
