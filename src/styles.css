@@ -1,6 +1,7 @@
 html {
   height: 100%;
   overflow-y: scroll; /* Always active scrollbar */
+  background-color: var(--oc-gray-1);
 }
 
 body {
@@ -11,4 +12,15 @@ body {
   position: relative;
   margin: 0 10vw;
   padding: 0;
+}
+
+.container {
+  background: transparent;
+  border-radius: 8px;
+  outline: 0;
+}
+
+.flex-center {
+  margin-top: 3em;
+  background: transparent;
 }

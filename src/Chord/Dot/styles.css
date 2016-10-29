@@ -1,6 +1,6 @@
 .Chord .Open {
   stroke: #444;
-  fill: #EEE;
+  fill: transparent;
   stroke-width: 0.25;
 }
 
@@ -11,14 +11,14 @@
 }
 
 .Chord .Finger {
-  font-size: 0.3rem;
+  font-size: 0.5rem;
   fill: white;
-  font-family: Verdana;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-anchor: middle;
 }
 
 .Chord .Muted {
-  font-size: 0.4rem;
+  font-size: 0.8rem;
   fill: #444;
   font-family: Verdana;
   text-anchor: middle;

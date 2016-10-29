@@ -3,18 +3,18 @@ import { BrowserRouter as Router, Link, Match, Miss, Redirect } from 'react-rout
 import Variations from './Variations'
 import Keys from './Keys'
 import Suffixes from './Suffixes'
-import guitarLogo from './guitar.svg'
 import NotFound from '../NotFound'
+import 'open-color/open-color.css'
+import 'mobi.css/dist/mobi.css'
 import './styles.css'
 
 const App = () =>
   <Router>
     <div className='App'>
       <div className='App-Header'>
-        <Link to='/react-chords'><img src={guitarLogo} className='App-Logo' alt='logo' /></Link>
         <div className='Title'>
           <h2><Link to='/react-chords'>Chords database</Link></h2>
-          <p>All the chords for your string instruments, beautifully rendered</p>
+          <p>Chords for your string instruments, beautifully rendered with SVG</p>
         </div>
       </div>
       <ul className='App-Menu'>
@@ -26,7 +26,7 @@ const App = () =>
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])' component={Suffixes} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix' component={Variations} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)' component={Suffixes} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([DEAB]b)' component={Suffixes} />
+        <Match exactly pattern='/react-chords/:instrument/chords/:key([DEGAB]b)' component={Suffixes} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix' component={Variations} />
         <Match exactly pattern='/react-chords(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
         <Match exactly pattern='(/?)' render={() => <Redirect to='/react-chords/guitar' />} />

@@ -6,7 +6,7 @@ const fretXPosition = {
   6: [ 60, 50, 40, 30, 20, 10, 0 ]
 }
 
-const fretYPosition = [ 2, 14, 26, 38 ]
+const fretYPosition = [ 2.5, 14, 26, 38 ]
 
 const lastValidBarreString = (frets, barre) => {
   const lastString = frets.lastIndexOf(barre)

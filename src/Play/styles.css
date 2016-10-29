@@ -21,7 +21,7 @@
 }
 
 .Play span.active {
-  background: #75A6D5;
-  color: white;
+  background: var(--oc-yellow-4);
+  color: var(--oc-red-9);
   border-radius: 5px;
 }

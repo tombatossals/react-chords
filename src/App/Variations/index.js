@@ -2,24 +2,39 @@ import React from 'react'
 import Chord from '../../Chord'
 import { Link } from 'react-router'
 import Play from '../../Play'
+import './styles.css'
 
 const getDatabase = instrument =>
   require(`@tombatossals/chords-db/lib/${instrument}.json`)
+
+const getBlocks = keys => {
+  var temp = keys.slice()
+  var arr = []
+
+  while (temp.length) {
+    arr.push(temp.splice(0, 3))
+  }
+
+  return arr
+}
 
 const Variations = ({ params }) => {
   const instrument = getDatabase(params.instrument)
   const chord = instrument.chords[params.key].find(chord => chord.suffix === params.suffix)
   return (
-    <div>
-      <h2><Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>Return to key {params.key.replace('sharp', '#')}</Link></h2>
-      <div className='Chords'>
-        {chord.positions.map((position, index) =>
-          <div key={index} className='Chord'>
-            <Chord key={index} chord={chord} instrument={instrument} version={index + 1} />
-            <Play chord={position.midi} />
-          </div>
-        )}
-      </div>
+    <div className='Variations'>
+      <h1>{params.key}{params.suffix} <span className='return'>[ <Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
+      {getBlocks(chord.positions).map((block, index1) =>
+        <div className='no-margin-top flex-center' key={index1}>
+          {block.map((position, index2) =>
+            <div key={position.suffix} className='Chord unit-1-3 site-box text-center'>
+              <h2>Variation {index2 + 1 + index1 * 3}</h2>
+              <Chord key={index1} chord={chord} instrument={instrument} version={index2 + index1 * 3 + 1} />
+              <Play chord={position.midi} />
+            </div>
+          )}
+        </div>
+      )}
     </div>)
 }
 

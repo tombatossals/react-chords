@@ -4,7 +4,7 @@ import Dot from './Dot'
 import Barre from './Barre'
 import './styles.css'
 
-const Chord = ({ chord, instrument, version }) => {
+const Chord = ({ chord, instrument, version, lite }) => {
   if (chord.positions.length < version) return null
 
   const position = chord.positions[version - 1]
@@ -12,21 +12,16 @@ const Chord = ({ chord, instrument, version }) => {
     className='Chord'
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMinYMin meet'
-    viewBox='0 0 68 80'>
-    <g transform='translate(37, 10)'>
-      <text className='Title'>
-        <tspan className='Key'>{chord.key}</tspan>
-        <tspan className='Type'>{chord.suffix}</tspan>
-      </text>
-    </g>
+    viewBox='0 0 80 70'>
     <g
-      transform='translate(13, 22)'>
-      <Neck withNotesAtTheEnd
+      transform='translate(13, 13)'>
+      <Neck
         tunning={instrument.main.tunnings.standard}
         strings={instrument.main.strings}
         frets={position.frets}
         fretsOnChord={instrument.main.fretsOnChord}
         baseFret={position.baseFret}
+        lite={lite}
       />
       {position.barres.map((barre, index) =>
         <Barre
@@ -35,7 +30,6 @@ const Chord = ({ chord, instrument, version }) => {
           strings={instrument.main.strings}
           frets={position.frets}
         />)}
-
       { position.frets.map((fret, string) => (
         <Dot
           key={string}
@@ -43,6 +37,7 @@ const Chord = ({ chord, instrument, version }) => {
           fret={fret}
           strings={instrument.main.strings}
           finger={position.fingers[string]}
+          lite={lite}
         />
       ))}
     </g>
@@ -52,11 +47,13 @@ const Chord = ({ chord, instrument, version }) => {
 Chord.propTypes = {
   chord: React.PropTypes.any,
   instrument: React.PropTypes.object,
-  version: React.PropTypes.number
+  version: React.PropTypes.number,
+  lite: React.PropTypes.bool
 }
 
 Chord.defaultProps = {
-  version: 1
+  version: 1,
+  lite: false
 }
 
 export default Chord

@@ -1,0 +1,19 @@
+.App-Info > .Chords > h1 > span.return {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.App-Info > .Chords > h1 > span.return > a:hover {
+  color: var(--oc-cyan-9);
+  text-decoration: underline;
+}
+
+.App-Info > .Chords > div > .Chord > a > h2 > span.suffix {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.App-Info > .Chords > div > .Chord > a {
+  display: block;
+}
+

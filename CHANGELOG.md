@@ -1,3 +1,9 @@
+## 0.0.8 (October 29, 2016)
+
+### Webapp
+
+* Better rendering and navigation
+
 ## 0.0.7 (October 22, 2016)
 
 ### Webapp

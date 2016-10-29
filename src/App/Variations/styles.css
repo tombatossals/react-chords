@@ -1,0 +1,25 @@
+.App-Info > .Variations > h1 > span.return {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.App-Info > .Variations > h1 > span.return > a:hover {
+  color: var(--oc-cyan-9);
+  text-decoration: underline;
+}
+
+.App-Info > .Variations > h1 {
+  margin: 1rem 2rem 3rem;
+  text-align: center;
+}
+
+.App-Info > .Variations > div > .Chord > h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: .5rem 0 0;
+  padding: 0;
+}
+
+.App-Info > .Variations > div > .Chord {
+  margin-bottom: 4rem;
+}
