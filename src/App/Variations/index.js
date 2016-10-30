@@ -27,7 +27,7 @@ const Variations = ({ params }) => {
       {getBlocks(chord.positions).map((block, index1) =>
         <div className='no-margin-top flex-center' key={index1}>
           {block.map((position, index2) =>
-            <div key={position.suffix} className='Chord unit-1-3 site-box text-center'>
+            <div key={index2} className='Chord unit-1-3 site-box text-center'>
               <h2>Variation {index2 + 1 + index1 * 3}</h2>
               <Chord key={index1} chord={chord} instrument={instrument} version={index2 + index1 * 3 + 1} />
               <Play chord={position.midi} />

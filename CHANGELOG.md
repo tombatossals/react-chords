@@ -1,3 +1,10 @@
+## 0.0.9 (October 30, 2016)
+
+### Webapp
+
+* Render new chord format
+* Better rendering of text tags
+
 ## 0.0.8 (October 29, 2016)
 
 ### Webapp

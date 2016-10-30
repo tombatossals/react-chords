@@ -31,10 +31,10 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
       d={getNeckPath(strings, fretsOnChord)} />
     { baseFret === 1
       ? <path className='Nut' d={`M ${offsets[strings].x} 0 H ${offsets[strings].length}`} />
-      : <text className='BaseFret' x={frets[5] === 1 ? (baseFret > 9 ? -12 : -9) : (baseFret > 9 ? -8 : -6)} y='7'>{baseFret}fr</text> }
+      : <text className='BaseFret' x={frets[0] === 1 ? (baseFret > 9 ? -12 : -11) : (baseFret > 9 ? -10 : -7)} y='8'>{baseFret}fr</text> }
     { !lite &&
       <g>
-        { tunning.map((note, index) =>
+        { tunning.slice().reverse().map((note, index) =>
           <text key={index} className='Note' x={offsets[strings].x + index * 10} y='56'>{note}</text>
         )}
       </g>

@@ -30,13 +30,13 @@ const Chord = ({ chord, instrument, version, lite }) => {
           strings={instrument.main.strings}
           frets={position.frets}
         />)}
-      { position.frets.map((fret, string) => (
+      { position.frets.map((fret, index) => (
         <Dot
-          key={string}
-          string={string + 1}
+          key={index}
+          string={instrument.main.strings - index}
           fret={fret}
           strings={instrument.main.strings}
-          finger={position.fingers[string]}
+          finger={position.fingers[instrument.main.strings - index - 1]}
           lite={lite}
         />
       ))}
