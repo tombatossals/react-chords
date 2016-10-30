@@ -26,4 +26,12 @@
 
 .App-Info > .Variations > div > .Chord {
   margin-bottom: 4rem;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.App-Info > .Variations > div > .Chord:hover {
+  background-color: var(--oc-yellow-0);
+  border-radius: 8px;
+  border: 1px solid var(--oc-yellow-2);
 }
