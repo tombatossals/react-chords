@@ -1,3 +1,10 @@
+## 0.0.10 (October 30, 2016)
+
+### Webapp
+
+* Render the variations alone in a different page.
+* Added google-sites verification file.
+
 ## 0.0.9 (October 30, 2016)
 
 ### Webapp

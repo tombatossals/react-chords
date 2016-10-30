@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Link, Match, Miss, Redirect } from 'react-router'
 import Variations from './Variations'
+import Variation from './Variation'
 import Keys from './Keys'
 import Suffixes from './Suffixes'
 import NotFound from '../NotFound'
@@ -29,6 +30,9 @@ const App = () =>
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix' component={Variations} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([DEGAB]b)/:suffix' component={Variations} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix' component={Variations} />
+        <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix/:variation([0-9]+)' component={Variation} />
+        <Match exactly pattern='/react-chords/:instrument/chords/:key([DEGAB]b)/:suffix/:variation([0-9]+)' component={Variation} />
+        <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix/:variation([0-9]+)' component={Variation} />
         <Match exactly pattern='/react-chords(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
         <Match exactly pattern='(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
         <Miss component={NotFound} />

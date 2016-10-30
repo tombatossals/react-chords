@@ -23,13 +23,15 @@ const Variations = ({ params }) => {
   const chord = instrument.chords[params.key].find(chord => chord.suffix === params.suffix)
   return (
     <div className='Variations'>
-      <h1>{params.key}<span className='suffix'>{params.suffix}</span> <span className='return'>[ <Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
+      <h1>{params.key.replace('sharp', '#')}<span className='suffix'>{params.suffix}</span> <span className='return'>[ <Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
       {getBlocks(chord.positions).map((block, index1) =>
         <div className='no-margin-top flex-center' key={index1}>
           {block.map((position, index2) =>
             <div key={index2} className='Chord unit-1-3 site-box text-center'>
-              <h2>Variation {index2 + 1 + index1 * 3}</h2>
-              <Chord key={index1} chord={chord} instrument={instrument} version={index2 + index1 * 3 + 1} />
+              <Link to={`/react-chords/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}/${index2 + 1 + index1 * 3}`} key={chord.suffix} className='Chord'>
+                <h2>Variation {index2 + 1 + index1 * 3}</h2>
+                <Chord key={index1} chord={chord} instrument={instrument} version={index2 + index1 * 3 + 1} />
+              </Link>
               <Play chord={position.midi} />
             </div>
           )}

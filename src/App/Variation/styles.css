@@ -1,0 +1,29 @@
+.App-Info > .Variation > h1 {
+  text-align: center;
+}
+
+.App-Info > .Variation > h1 > span.variation {
+  font-size: 2rem;
+}
+
+.App-Info > .Variation > h1 > span.return {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.App-Info > .Variation > h1 > span.return > a:hover {
+  color: var(--oc-cyan-9);
+  text-decoration: underline;
+}
+
+.App-Info > .Variation > h1 > span.suffix {
+  font-size: 1.6rem;
+}
+
+.App-Info > .Variation > div > .Chord {
+  margin-bottom: 4rem;
+}
+
+.App-Info > .Variation > .Chord > .Play {
+  text-align: center;
+}
