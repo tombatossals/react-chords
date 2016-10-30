@@ -8,6 +8,10 @@
   text-decoration: underline;
 }
 
+.App-Info > .Variations > h1 > span.suffix {
+  font-size: 1.6rem;
+}
+
 .App-Info > .Variations > h1 {
   margin: 1rem 2rem 3rem;
   text-align: center;

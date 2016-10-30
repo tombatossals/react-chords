@@ -23,7 +23,7 @@ const Variations = ({ params }) => {
   const chord = instrument.chords[params.key].find(chord => chord.suffix === params.suffix)
   return (
     <div className='Variations'>
-      <h1>{params.key}{params.suffix} <span className='return'>[ <Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
+      <h1>{params.key}<span className='suffix'>{params.suffix}</span> <span className='return'>[ <Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
       {getBlocks(chord.positions).map((block, index1) =>
         <div className='no-margin-top flex-center' key={index1}>
           {block.map((position, index2) =>
