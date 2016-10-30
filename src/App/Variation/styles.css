@@ -3,7 +3,8 @@
 }
 
 .App-Info > .Variation > h1 > span.variation {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: normal;
 }
 
 .App-Info > .Variation > h1 > span.return {

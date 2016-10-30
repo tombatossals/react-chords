@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.App-Info > .Variations > div > .Chord > h2 {
+.App-Info > .Variations > div > .Chord > a > h2 {
   font-size: 2rem;
   font-weight: normal;
   margin: .5rem 0 0;
