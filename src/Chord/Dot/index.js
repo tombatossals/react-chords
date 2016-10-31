@@ -40,7 +40,7 @@ const Dot = ({ string, fret, finger, strings, lite }) =>
 
 Dot.propTypes = {
   string: React.PropTypes.number,
-  fret: React.PropTypes.oneOf([ -1 ].concat([...Array(positions.fret.length).keys()])),
+  fret: React.PropTypes.number,
   finger: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5 ]),
   strings: React.PropTypes.number.isRequired,
   lite: React.PropTypes.bool

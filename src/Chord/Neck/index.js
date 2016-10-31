@@ -21,8 +21,8 @@ const getNeckVerticalLine = (pos, strings) =>
   `M ${offsets[strings].y + pos * 10} 0 V 48`
 
 const getNeckPath = (strings, fretsOnChord) =>
-  Array(fretsOnChord + 1).fill().map((_, pos) => getNeckHorizonalLine(pos, strings)).join(' ').concat(
-    Array(strings).fill().map((_, pos) => getNeckVerticalLine(pos, strings)).join(' '))
+  Array.apply(null, Array(fretsOnChord + 1)).map((_, pos) => getNeckHorizonalLine(pos, strings)).join(' ').concat(
+    Array.apply(null, Array(strings)).map((_, pos) => getNeckVerticalLine(pos, strings)).join(' '))
 
 const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
   return <g>

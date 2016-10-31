@@ -1,3 +1,3 @@
-const ac = new window.AudioContext()
+const ac = window.AudioContext && new window.AudioContext()
 
 export const getAudioContext = () => ac
