@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Chord from '../../Chord'
 import { Link } from 'react-router'
 import Play from '../../Play'
@@ -22,7 +23,14 @@ const Suffixes = ({ params }) => {
   const instrument = getDatabase(params.instrument)
   return (
     <div className='Chords'>
-      <h1>{params.key.replace('sharp', '#')} key <span className='return'>[ <Link to={`/react-chords/${params.instrument}`}>return</Link> ]</span></h1>
+      <Helmet
+        htmlAttributes={{lang: 'en'}}
+        title={instrument.main.name + ' ' + params.key.replace('sharp', '#') + ' key chords'}
+        meta={[
+            { name: 'description', content: 'Guitar and Ukelele chords database. ' + instrument.main.name + ' ' + params.key.replace('sharp', '#') + ' key chords list.' }
+        ]}
+      />
+      <h1>{instrument.main.name} {params.key.replace('sharp', '#')} key chords <span className='return'>[ <Link to={`/react-chords/${params.instrument}`}>return</Link> ]</span></h1>
       {getBlocks(instrument.chords[params.key]).map((block, index) =>
         <div className='no-margin-top flex-center' key={index}>
           {block.map(chord =>

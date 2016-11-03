@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Chord from '../../Chord'
 import { Link } from 'react-router'
 import './styles.css'
@@ -21,6 +22,13 @@ const Keys = ({ params }) => {
   const instrument = getDatabase(params.instrument)
   return (
     <div className='Chords'>
+      <Helmet
+        htmlAttributes={{lang: 'en'}}
+        title={instrument.main.name + ' chords'}
+        meta={[
+            { name: 'description', content: 'Guitar and Ukelele chords database. ' + instrument.main.name + ' chords list.' }
+        ]}
+      />
       <h1>{instrument.main.name} chords</h1>
       {getBlocks(instrument.main.keys.map(k => k.replace('#', 'sharp'))).map((keyPair, index) =>
         <div className='no-margin-top flex-center' key={index}>

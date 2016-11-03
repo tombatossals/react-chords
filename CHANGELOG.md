@@ -1,3 +1,9 @@
+## 0.0.11 (November 3, 2016)
+
+### Webapp
+
+* Added meta and title headers with react-helmet.
+
 ## 0.0.10 (October 30, 2016)
 
 ### Webapp
