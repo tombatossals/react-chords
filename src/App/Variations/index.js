@@ -26,17 +26,17 @@ const Variations = ({ params }) => {
     <div className='Variations'>
       <Helmet
         htmlAttributes={{lang: 'en'}}
-        title={instrument.main.name + ' ' + params.key.replace('sharp', '#') + params.suffix + ' chords'}
+        title={`${instrument.main.name} ${params.key.replace('sharp', '#')} ${params.suffix} chords`}
         meta={[
-            { name: 'description', content: 'Guitar and Ukelele chords database. ' + instrument.main.name + ' ' + params.key.replace('sharp', '#') + params.suffix + ' chord variations list.' }
+            { name: 'description', content: `Guitar and Ukelele chords database. ${instrument.main.name} ${params.key.replace('sharp', '#')} ${params.suffix} chord variations list.` }
         ]}
       />
-      <h1>{instrument.main.name} {params.key.replace('sharp', '#')}<span className='suffix'>{params.suffix}</span> chords <span className='return'>[ <Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
+      <h1>{instrument.main.name} {params.key.replace('sharp', '#')}<span className='suffix'>{params.suffix}</span> chords <span className='return'>[ <Link to={`/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
       {getBlocks(chord.positions).map((block, index1) =>
         <div className='no-margin-top flex-center' key={index1}>
           {block.map((position, index2) =>
             <div key={index2} className='Chord unit-1-3 site-box text-center'>
-              <Link to={`/react-chords/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}/${index2 + 1 + index1 * 3}`} key={chord.suffix} className='Chord'>
+              <Link to={`/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}/${index2 + 1 + index1 * 3}`} key={chord.suffix} className='Chord'>
                 <h2>Variation {index2 + 1 + index1 * 3}</h2>
                 <Chord key={index1} chord={chord} instrument={instrument} version={index2 + index1 * 3 + 1} />
               </Link>
