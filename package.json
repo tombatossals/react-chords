@@ -5,6 +5,7 @@
   "private": false,
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
     "eslint-config-standard-react": "^4.2.0",
     "gh-pages": "^0.11.0",
     "react-scripts": "0.7.0",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build; npm run sitemap",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "sitemap": "babel-node src/sitemap",

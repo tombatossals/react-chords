@@ -30,12 +30,12 @@ const Suffixes = ({ params }) => {
             { name: 'description', content: `Guitar and Ukelele chords database. ${instrument.main.name} ${params.key.replace('sharp', '#')} key chords list.` }
         ]}
       />
-      <h1>{instrument.main.name} {params.key.replace('sharp', '#')} key chords <span className='return'>[ <Link to={`/${params.instrument}`}>return</Link> ]</span></h1>
+      <h1>{instrument.main.name} {params.key.replace('sharp', '#')} key chords <span className='return'>[ <Link to={`/react-chords/${params.instrument}`}>return</Link> ]</span></h1>
       {getBlocks(instrument.chords[params.key]).map((block, index) =>
         <div className='no-margin-top flex-center' key={index}>
           {block.map(chord =>
             <div key={chord.suffix} className='Chord unit-1-4 site-box text-center'>
-              <Link to={`/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}`} key={chord.suffix} className='Chord'>
+              <Link to={`/react-chords/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}`} key={chord.suffix} className='Chord'>
                 <h2>{chord.key}<span className='suffix'>{chord.suffix}</span></h2>
                 <Chord instrument={instrument} chord={chord} version={1} />
               </Link>
