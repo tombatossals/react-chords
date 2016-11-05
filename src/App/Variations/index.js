@@ -20,7 +20,8 @@ const getBlocks = keys => {
 }
 
 const Variations = ({ params }) => {
-  const instrument = getDatabase(params.instrument)
+  const name = params.instrument || 'guitar'
+  const instrument = getDatabase(name)
   const chord = instrument.chords[params.key].find(chord => chord.suffix === params.suffix)
   return (
     <div className='Variations'>
@@ -31,7 +32,7 @@ const Variations = ({ params }) => {
             { name: 'description', content: `Guitar and Ukelele chords database. ${instrument.main.name} ${params.key.replace('sharp', '#')} ${params.suffix} chord variations list.` }
         ]}
       />
-      <h1>{instrument.main.name} {params.key.replace('sharp', '#')}<span className='suffix'>{params.suffix}</span> chords <span className='return'>[ <Link to={`/react-chords/${params.instrument}/chords/${params.key}`}>return</Link> ]</span></h1>
+      <h1>{instrument.main.name} {params.key.replace('sharp', '#')}<span className='suffix'>{params.suffix}</span> chords <span className='return'>[ <Link to={`/react-chords/${name}/chords/${params.key}`}>return</Link> ]</span></h1>
       {getBlocks(chord.positions).map((block, index1) =>
         <div className='no-margin-top flex-center' key={index1}>
           {block.map((position, index2) =>

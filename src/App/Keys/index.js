@@ -4,7 +4,7 @@ import Chord from '../../Chord'
 import { Link } from 'react-router'
 import './styles.css'
 
-const getDatabase = (instrument = 'guitar') =>
+const getDatabase = instrument =>
   require(`@tombatossals/chords-db/lib/${instrument}.json`)
 
 const getBlocks = keys => {
@@ -19,7 +19,8 @@ const getBlocks = keys => {
 }
 
 const Keys = ({ params }) => {
-  const instrument = getDatabase(params.instrument)
+  const name = params.instrument || 'guitar'
+  const instrument = getDatabase(name)
   return (
     <div className='Chords'>
       <Helmet
@@ -34,7 +35,7 @@ const Keys = ({ params }) => {
         <div className='no-margin-top flex-center' key={index}>
           {keyPair.map(keyName =>
             <div className='Chord unit-1-4 site-box text-center' key={keyName}>
-              <Link to={`/react-chords/${params.instrument}/chords/${keyName}`} className='ChordLink'>
+              <Link to={`/react-chords/${name}/chords/${keyName}`} className='ChordLink'>
                 <h2>{keyName.replace('sharp', '#')}</h2>
                 {instrument.chords[keyName] && instrument.chords[keyName].slice(0, 1).map(chord =>
                   <div key={chord.suffix}>
@@ -51,7 +52,15 @@ const Keys = ({ params }) => {
 }
 
 Keys.propTypes = {
-  params: React.PropTypes.object
+  params: React.PropTypes.shape({
+    instrument: React.PropTypes.string
+  })
+}
+
+Keys.defaultProps = {
+  params: {
+    instrument: 'guitar'
+  }
 }
 
 export default Keys

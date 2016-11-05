@@ -20,7 +20,8 @@ const getBlocks = keys => {
 }
 
 const Suffixes = ({ params }) => {
-  const instrument = getDatabase(params.instrument)
+  const name = params.instrument || 'guitar'
+  const instrument = getDatabase(name)
   return (
     <div className='Chords'>
       <Helmet
@@ -35,7 +36,7 @@ const Suffixes = ({ params }) => {
         <div className='no-margin-top flex-center' key={index}>
           {block.map(chord =>
             <div key={chord.suffix} className='Chord unit-1-4 site-box text-center'>
-              <Link to={`/react-chords/${params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}`} key={chord.suffix} className='Chord'>
+              <Link to={`/react-chords/${name}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}`} key={chord.suffix} className='Chord'>
                 <h2>{chord.key}<span className='suffix'>{chord.suffix}</span></h2>
                 <Chord instrument={instrument} chord={chord} version={1} />
               </Link>
