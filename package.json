@@ -17,7 +17,7 @@
     "open-color": "^1.4.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-helmet": "^3.1.0",
+    "react-helmet": "^3.2.1",
     "react-router": "^4.0.0-alpha.5",
     "soundfont-player": "^0.10.5"
   },
