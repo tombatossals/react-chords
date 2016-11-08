@@ -39,7 +39,7 @@ const Keys = ({ params }) => {
                 <h2>{keyName.replace('sharp', '#')}</h2>
                 {instrument.chords[keyName] && instrument.chords[keyName].slice(0, 1).map(chord =>
                   <div key={chord.suffix}>
-                    <Chord instrument={instrument} chord={chord} version={1} lite />
+                    <Chord instrument={instrument.main} chord={chord} version={1} lite />
                   </div>
                 )}
               </Link>

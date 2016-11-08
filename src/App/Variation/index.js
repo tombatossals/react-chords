@@ -24,7 +24,9 @@ const Variation = ({ params }) => {
       />
       <h1>{instrument.main.name} {params.key.replace('sharp', '#')}<span className='suffix'>{params.suffix}</span> chord <span className='variation'>(Variation {params.variation})</span> <span className='return'>[ <Link to={`/react-chords/${name}/chords/${params.key}/${params.suffix}`}>return</Link> ]</span></h1>
       <div className='Chord'>
-        <Chord chord={chord} instrument={instrument} version={parseInt(params.variation, 10)} />
+        <a href={`/static/media/chords/${params.instrument}/${params.key}/${params.suffix}/${params.key}${params.suffix}-${params.variation}.svg`}>
+          <Chord chord={chord} instrument={instrument.main} version={parseInt(params.variation, 10)} />
+        </a>
         <Play chord={variation.midi} />
       </div>
     </div>)

@@ -2,24 +2,23 @@ import React from 'react'
 import Neck from './Neck'
 import Dot from './Dot'
 import Barre from './Barre'
-import './styles.css'
 
 const Chord = ({ chord, instrument, version, lite }) => {
   if (chord.positions.length < version) return null
 
   const position = chord.positions[version - 1]
   return <svg
-    className='Chord'
+    width='100%'
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMinYMin meet'
     viewBox='0 0 80 70'>
     <g
       transform='translate(13, 13)'>
       <Neck
-        tunning={instrument.main.tunnings.standard}
-        strings={instrument.main.strings}
+        tunning={instrument.tunnings.standard}
+        strings={instrument.strings}
         frets={position.frets}
-        fretsOnChord={instrument.main.fretsOnChord}
+        fretsOnChord={instrument.fretsOnChord}
         baseFret={position.baseFret}
         lite={lite}
       />
@@ -27,16 +26,16 @@ const Chord = ({ chord, instrument, version, lite }) => {
         <Barre
           key={index}
           barre={barre}
-          strings={instrument.main.strings}
+          strings={instrument.strings}
           frets={position.frets}
         />)}
       { position.frets.map((fret, index) => (
         <Dot
           key={index}
-          string={instrument.main.strings - index}
+          string={instrument.strings - index}
           fret={fret}
-          strings={instrument.main.strings}
-          finger={position.fingers[instrument.main.strings - index - 1]}
+          strings={instrument.strings}
+          finger={position.fingers[instrument.strings - index - 1]}
           lite={lite}
         />
       ))}

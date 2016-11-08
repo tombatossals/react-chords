@@ -1,3 +1,9 @@
+## 0.0.12 (November 8, 2016)
+
+### Backend
+
+* Generate static SVG chord files.
+
 ## 0.0.11 (November 3, 2016)
 
 ### Webapp

@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles.css'
 
 const positions = {
   string: [ 50, 40, 30, 20, 10, 0 ],
@@ -23,19 +22,30 @@ const radius = {
 const Dot = ({ string, fret, finger, strings, lite }) =>
   fret === -1
     ? <text
-      className='Muted'
+      fontSize='0.8rem'
+      fill='#444'
+      fontFamily='Verdana'
+      textAnchor='middle'
       x={getStringPosition(string, strings)}
       y='-2'
       >x</text>
     : (<g>
       <circle
-        className={fret === 0 ? 'Open' : 'Fret'}
+        strokeWidth='0.25'
+        stroke='#444'
+        fill={fret === 0 ? 'transparent' : '#444'}
         cx={getStringPosition(string, strings)}
         cy={positions.fret[fret]}
         r={fret === 0 ? radius['open'] : radius['fret']}
       />
       { !lite && finger > 0 &&
-        <text className='Finger' x={getStringPosition(string, strings)} y={positions.finger[fret]}>{ finger }</text>}
+        <text
+          fontSize='0.5rem'
+          fill='white'
+          textAnchor='middle'
+          x={getStringPosition(string, strings)}
+          y={positions.finger[fret]}
+        >{ finger }</text>}
     </g>)
 
 Dot.propTypes = {

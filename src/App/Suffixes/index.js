@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Chord from '../../Chord'
 import { Link } from 'react-router'
-import Play from '../../Play'
 import './styles.css'
 
 const getDatabase = instrument =>
@@ -38,9 +37,8 @@ const Suffixes = ({ params }) => {
             <div key={chord.suffix} className='Chord unit-1-4 site-box text-center'>
               <Link to={`/react-chords/${name}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix}`} key={chord.suffix} className='Chord'>
                 <h2>{chord.key}<span className='suffix'>{chord.suffix}</span></h2>
-                <Chord instrument={instrument} chord={chord} version={1} />
+                <Chord instrument={instrument.main} chord={chord} version={1} lite />
               </Link>
-              <Play chord={chord.positions[0].midi} />
             </div>
           )}
         </div>

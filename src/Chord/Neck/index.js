@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles.css'
 
 const offsets = {
   4: {
@@ -27,15 +26,38 @@ const getNeckPath = (strings, fretsOnChord) =>
 const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
   return <g>
     <path
-      className='Neck'
+      stroke='#444'
+      strokeWidth='0.25'
+      strokeLinecap='square'
+      strokeLinejoin='square'
       d={getNeckPath(strings, fretsOnChord)} />
     { baseFret === 1
-      ? <path className='Nut' d={`M ${offsets[strings].x} 0 H ${offsets[strings].length}`} />
-      : <text className='BaseFret' x={frets[0] === 1 ? (baseFret > 9 ? -12 : -11) : (baseFret > 9 ? -10 : -7)} y='8'>{baseFret}fr</text> }
+      ? <path
+        stroke='#444'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d={`M ${offsets[strings].x} 0 H ${offsets[strings].length}`}
+      />
+      : <text
+        fontSize='0.4rem'
+        fill='#444'
+        fontFamily='Verdana'
+        x={frets[0] === 1 ? (baseFret > 9 ? -12 : -11) : (baseFret > 9 ? -10 : -7)}
+        y='8'
+      >{baseFret}fr</text> }
     { !lite &&
       <g>
         { tunning.slice().reverse().map((note, index) =>
-          <text key={index} className='Note' x={offsets[strings].x + index * 10} y='56'>{note}</text>
+          <text
+            key={index}
+            fontSize='0.7rem'
+            fill='#444'
+            fontFamily='Verdana'
+            textAnchor='middle'
+            x={offsets[strings].x + index * 10}
+            y='56'
+          >{note}</text>
         )}
       </g>
     }

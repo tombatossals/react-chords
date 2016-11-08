@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles.css'
 
 const fretXPosition = {
   4: [ 10, 20, 30, 40, 50 ],
@@ -21,7 +20,7 @@ const Barre = ({ barre, frets, strings }) => {
   const width = (string2 - string1) * 10
   const y = fretYPosition[barre - 1]
 
-  return <rect className='Barre' x={fretXPosition[strings][string1]} y={y} width={width} height='8' />
+  return <rect fill='#444' x={fretXPosition[strings][string1]} y={y} width={width} height='8' />
 }
 
 Barre.propTypes = {

@@ -1,11 +1,12 @@
 {
   "name": "@tombatossals/react-chords",
   "description": "React library for easily generate string instruments SVG chord diagrams",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "private": false,
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "eslint-config-standard-react": "^4.2.0",
     "gh-pages": "^0.11.0",
     "react-scripts": "0.7.0",
@@ -27,6 +28,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "sitemap": "babel-node src/sitemap",
+    "chords": "babel-node src/generate-chords",
     "standard": "standard",
     "deploy": "gh-pages -d build"
   },
