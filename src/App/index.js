@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link, Match, Miss } from 'react-router'
+import { BrowserRouter as Router, Link, Match, Redirect, Miss } from 'react-router'
 import Variations from './Variations'
 import Variation from './Variation'
 import Keys from './Keys'
@@ -14,7 +14,7 @@ const App = () =>
     <div className='App'>
       <div className='App-Header'>
         <div className='Title'>
-          <h2><Link to='/react-chords/'>Chords database</Link></h2>
+          <h2><Link to='/react-chords'>Chords database</Link></h2>
           <p>Chords for your string instruments, beautifully rendered with SVG</p>
         </div>
       </div>
@@ -33,8 +33,8 @@ const App = () =>
         <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix/:variation([0-9]+)' component={Variation} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([DEGAB]b)/:suffix/:variation([0-9]+)' component={Variation} />
         <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix/:variation([0-9]+)' component={Variation} />
-        <Match exactly pattern='(/react-chords/?)' component={Keys} />
-        <Match exactly pattern='(/?)' component={Keys} />
+        <Match exactly pattern='(/react-chords/?)' render={() => <Redirect to='/react-chords/guitar' />} />
+        <Match exactly pattern='(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
         <Miss component={NotFound} />
       </div>
     </div>

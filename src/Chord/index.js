@@ -8,7 +8,7 @@ const Chord = ({ chord, instrument, version, lite }) => {
   if (chord.positions.length < version) return null
 
   const position = chord.positions[version - 1]
-  return <svg
+  const svg = <svg
     className='Chord'
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMinYMin meet'
@@ -42,6 +42,8 @@ const Chord = ({ chord, instrument, version, lite }) => {
       ))}
     </g>
   </svg>
+
+  return <img src={svg} />
 }
 
 Chord.propTypes = {
