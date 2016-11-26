@@ -40,7 +40,7 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
         d={`M ${offsets[strings].x} 0 H ${offsets[strings].length}`}
       />
       : <text
-        fontSize='0.4rem'
+        fontSize='0.25rem'
         fill='#444'
         fontFamily='Verdana'
         x={frets[0] === 1 ? (baseFret > 9 ? -12 : -11) : (baseFret > 9 ? -10 : -7)}
@@ -51,12 +51,12 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
         { tunning.slice().reverse().map((note, index) =>
           <text
             key={index}
-            fontSize='0.7rem'
+            fontSize='0.3rem'
             fill='#444'
             fontFamily='Verdana'
             textAnchor='middle'
             x={offsets[strings].x + index * 10}
-            y='56'
+            y='53'
           >{note}</text>
         )}
       </g>

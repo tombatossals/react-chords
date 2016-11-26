@@ -3,7 +3,7 @@ import React from 'react'
 const positions = {
   string: [ 50, 40, 30, 20, 10, 0 ],
   fret: [ -4, 6.5, 18, 30, 42, 54 ],
-  finger: [ -3, 7.75, 19.5, 31.5, 43.5 ]
+  finger: [ -3, 8, 19.75, 31.5, 43.5 ]
 }
 
 const offset = {
@@ -22,7 +22,7 @@ const radius = {
 const Dot = ({ string, fret, finger, strings, lite }) =>
   fret === -1
     ? <text
-      fontSize='0.8rem'
+      fontSize='0.4rem'
       fill='#444'
       fontFamily='Verdana'
       textAnchor='middle'
@@ -40,7 +40,8 @@ const Dot = ({ string, fret, finger, strings, lite }) =>
       />
       { !lite && finger > 0 &&
         <text
-          fontSize='0.5rem'
+          fontSize='0.3rem'
+          fontFamily='Verdana'
           fill='white'
           textAnchor='middle'
           x={getStringPosition(string, strings)}
