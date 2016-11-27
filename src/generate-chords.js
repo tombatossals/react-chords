@@ -6,7 +6,7 @@ import Chord from './Chord'
 
 import { renderToStaticMarkup } from 'react-dom/server'
 
-const basedir = path.join(__dirname, '..', 'build', 'static', 'media', 'chords')
+const basedir = path.join(__dirname, '..', 'public', 'chords')
 const instruments = [ 'guitar', 'ukelele' ]
 
 const writeSVGFile = (f, svg) =>
