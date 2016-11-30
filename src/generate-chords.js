@@ -15,10 +15,10 @@ const writeSVGFile = (f, svg) =>
 const createSVGChordAndWriteFile = (chord, version, instrument) => {
   const key = chord.key.replace('#', 'sharp')
   const suffix = chord.suffix.replace('#', 'sharp')
-  const dirname = path.join(basedir, instrument.name.toLowerCase(), key, suffix)
+  const dirname = path.join(basedir, instrument.name.toLowerCase(), 'chords', key, suffix)
   mkdirp(dirname, function (err) {
     if (err) return console.error(err)
-    const f = path.join(dirname, `${key}${suffix}-${version}.svg`)
+    const f = path.join(dirname, `${key}-${suffix}-${version}.svg`)
     const svg = renderToStaticMarkup(React.createElement(Chord, {
       chord,
       instrument,
