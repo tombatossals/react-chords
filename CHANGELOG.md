@@ -1,3 +1,9 @@
+## 0.0.13 (November 30, 2016)
+
+### Backend
+
+* New folder for sitemap and svg chord files.
+
 ## 0.0.12 (November 8, 2016)
 
 ### Backend

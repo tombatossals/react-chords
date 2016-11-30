@@ -5,11 +5,20 @@ const instrument = [ 'guitar', 'ukelele' ]
 const date = new Date().toISOString().substr(0, 10)
 
 const writeline = line =>
-  fs.appendFileSync(path.join(__dirname, '..', 'build', 'static', 'sitemap.xml'), line)
+  fs.appendFileSync(path.join(__dirname, '..', 'public', 'sitemap.xml'), line)
 
 const generateurl = (url, date) =>
   `<url>
     <loc>https://tombatossals.github.io/react-chords/?p=/${url}</loc>
+    <lastmod>${date}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  `
+
+const generateStaticUrl = (url, date) =>
+  `<url>
+    <loc>https://tombatossals.github.io/react-chords/${url}</loc>
     <lastmod>${date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -24,11 +33,15 @@ for (let i of instrument) {
   writeline(generateurl(`${i}`, date))
 
   for (let k of Object.keys(instrument.chords)) {
-    writeline(generateurl(`${i}/chords/${k}`, date))
+    const chord = k.replace('#', 'sharp')
+    writeline(generateurl(`${i}/chords/${chord}`, date))
     for (let c of instrument.chords[k]) {
-      writeline(generateurl(`${i}/chords/${k.replace('#', 'sharp')}/${c.suffix}`, date))
+      const suffix = c.suffix.replace('#', 'sharp')
+      writeline(generateurl(`${i}/chords/${chord}/${suffix}`, date))
       for (let v of Object.keys(c.positions)) {
-        writeline(generateurl(`${i}/chords/${k.replace('#', 'sharp')}/${c.suffix}/${parseInt(v, 10) + 1}`, date))
+        const version = parseInt(v, 10) + 1
+        writeline(generateurl(`${i}/chords/${chord}/${suffix}/${version}/`, date))
+        writeline(generateStaticUrl(`svg/${i}/chords/${chord}/${suffix}/${chord}-${suffix}-${version}.svg`, date))
       }
     }
   }
