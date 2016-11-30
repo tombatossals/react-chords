@@ -6,17 +6,17 @@ import Chord from './Chord'
 
 import { renderToStaticMarkup } from 'react-dom/server'
 
-const basedir = path.join(__dirname, '..', 'public', 'chords')
+const basedir = path.join(__dirname, '..', 'public', 'svg')
 const instruments = [ 'guitar', 'ukelele' ]
 
 const writeSVGFile = (f, svg) =>
   fs.writeFileSync(f, svg)
 
 const createSVGChordAndWriteFile = (chord, version, instrument) => {
-  const dirname = path.join(basedir, instrument.name.toLowerCase(), chord.key, chord.suffix)
+  const dirname = path.join(basedir, instrument.name.toLowerCase(), 'chords', chord.key, chord.suffix, version.toString())
   mkdirp(dirname, function (err) {
     if (err) return console.error(err)
-    const f = path.join(dirname, `${chord.key}${chord.suffix}-${version}.svg`)
+    const f = path.join(dirname, `${chord.key}${chord.suffix}.svg`)
     const svg = renderToStaticMarkup(React.createElement(Chord, {
       chord,
       instrument,
