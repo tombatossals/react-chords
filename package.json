@@ -1,7 +1,7 @@
 {
   "name": "@tombatossals/react-chords",
   "description": "React library for easily generate string instruments SVG chord diagrams",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "private": false,
   "devDependencies": {
     "babel-cli": "^6.18.0",

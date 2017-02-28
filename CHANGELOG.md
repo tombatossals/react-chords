@@ -1,3 +1,10 @@
+## 0.0.15 (Febraury 30, 2016)
+
+### Webapp
+
+* Updated dependencies versions
+* Updated react-router syntax with v4 changes
+
 ## 0.0.13 (November 30, 2016)
 
 ### Backend
