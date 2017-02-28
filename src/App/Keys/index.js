@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Chord from '../../Chord'
-import { Link } from 'react-router'
+import { Link, withRouter } from 'react-router-dom'
 import './styles.css'
 
 const getDatabase = instrument =>
@@ -18,8 +18,8 @@ const getBlocks = keys => {
   return arr
 }
 
-const Keys = ({ params }) => {
-  const name = params.instrument || 'guitar'
+const Keys = ({ match }) => {
+  const name = match.params.instrument || 'guitar'
   const instrument = getDatabase(name)
   return (
     <div className='Chords'>
@@ -52,8 +52,10 @@ const Keys = ({ params }) => {
 }
 
 Keys.propTypes = {
-  params: React.PropTypes.shape({
-    instrument: React.PropTypes.string
+  match: React.PropTypes.shape({
+    params: React.PropTypes.shape({
+      instrument: React.PropTypes.string
+    })
   })
 }
 
@@ -63,4 +65,4 @@ Keys.defaultProps = {
   }
 }
 
-export default Keys
+export default withRouter(Keys)

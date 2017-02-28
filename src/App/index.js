@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link, Match, Redirect, Miss } from 'react-router'
+import { BrowserRouter as Router, Link, Route, Redirect, Switch } from 'react-router-dom'
 import Variations from './Variations'
 import Variation from './Variation'
 import Keys from './Keys'
@@ -23,19 +23,21 @@ const App = () =>
         <li><Link to='/react-chords/ukelele'>Ukelele chords</Link></li>
       </ul>
       <div className='App-Info'>
-        <Match exactly pattern='/react-chords/:instrument(guitar|ukelele)' component={Keys} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])' component={Suffixes} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)' component={Suffixes} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([DEGAB]b)' component={Suffixes} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix' component={Variations} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([DEGAB]b)/:suffix' component={Variations} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix' component={Variations} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([CDF]sharp)/:suffix/:variation([0-9]+)' component={Variation} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([DEGAB]b)/:suffix/:variation([0-9]+)' component={Variation} />
-        <Match exactly pattern='/react-chords/:instrument/chords/:key([EFGABCD])/:suffix/:variation([0-9]+)' component={Variation} />
-        <Match exactly pattern='(/react-chords/?)' render={() => <Redirect to='/react-chords/guitar' />} />
-        <Match exactly pattern='(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
-        <Miss component={NotFound} />
+        <Switch>
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)' component={Keys} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([EFGABCD])' component={Suffixes} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([CDF]sharp)' component={Suffixes} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([DEGAB]b)' component={Suffixes} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([CDF]sharp)/:suffix' component={Variations} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([DEGAB]b)/:suffix' component={Variations} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([EFGABCD])/:suffix' component={Variations} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([CDF]sharp)/:suffix/:variation([0-9]+)' component={Variation} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([DEGAB]b)/:suffix/:variation([0-9]+)' component={Variation} />
+          <Route exact path='/react-chords/:instrument(guitar|ukelele)/chords/:key([EFGABCD])/:suffix/:variation([0-9]+)' component={Variation} />
+          <Route exact path='(/?)' render={() => <Redirect to='/react-chords/guitar' />} />
+          <Route exact path='(/react-chords/?)' render={() => <Redirect to='/react-chords/guitar' />} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     </div>
   </Router>

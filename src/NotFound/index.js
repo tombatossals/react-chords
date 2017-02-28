@@ -7,7 +7,7 @@ const NotFound = ({ location }) => (
 )
 
 NotFound.propTypes = {
-  location: React.PropTypes.string
+  location: React.PropTypes.object
 }
 
 export default NotFound
