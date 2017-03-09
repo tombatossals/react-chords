@@ -5,7 +5,7 @@ const fretXPosition = {
   6: [ 0, 10, 20, 30, 40, 50 ]
 }
 
-const fretYPosition = [ 2.35, 14, 26, 38 ]
+const fretYPosition = [ 2.35, 13.9, 26, 38 ]
 
 const firstValidBarreString = (frets, barre) => {
   const firstString = frets.indexOf(barre)
