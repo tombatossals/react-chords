@@ -24,6 +24,7 @@ const Keys = ({ match }) => {
   return (
     <div className='Chords'>
       <Helmet
+        html={true}
         htmlAttributes={{lang: 'en'}}
         title={instrument.main.name + ' chords'}
         meta={[
@@ -39,7 +40,7 @@ const Keys = ({ match }) => {
                 <h2>{keyName.replace('sharp', '#')}</h2>
                 {instrument.chords[keyName] && instrument.chords[keyName].slice(0, 1).map(chord =>
                   <div key={chord.suffix}>
-                    <Chord instrument={instrument.main} chord={chord} version={1} lite />
+                    <Chord instrument={instrument.main} chord={chord.positions[0]} lite />
                   </div>
                 )}
               </Link>

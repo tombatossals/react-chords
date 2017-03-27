@@ -36,7 +36,7 @@ const Suffixes = ({ match }) => {
             <div key={chord.suffix} className='Chord unit-1-4 site-box text-center'>
               <Link to={`/react-chords/${match.params.instrument}/chords/${chord.key.replace('#', 'sharp')}/${chord.suffix.replace('#', 'sharp')}`} key={chord.suffix} className='Chord'>
                 <h2>{chord.key}<span className='suffix'>{chord.suffix}</span></h2>
-                <Chord instrument={instrument.main} chord={chord} version={1} lite />
+                <Chord instrument={instrument.main} chord={chord.positions[0]} lite />
               </Link>
             </div>
           )}

@@ -12,7 +12,8 @@ const Variation = ({ match }) => {
   const instrument = getDatabase(match.params.instrument)
   var suffix = match.params.suffix.replace('sharp', '#')
   const chord = instrument.chords[match.params.key].find(chord => chord.suffix === suffix)
-  const variation = chord.positions[match.params.variation - 1]
+  const version = parseInt(match.params.variation, 10)
+  const variation = chord.positions[version - 1]
   return (
     <div className='Variation'>
       <Helmet
@@ -25,7 +26,7 @@ const Variation = ({ match }) => {
       <h1>{instrument.main.name} {match.params.key.replace('sharp', '#')}<span className='suffix'>{suffix}</span> chord <span className='variation'>(Variation {match.params.variation})</span> <span className='return'>[ <Link to={`/react-chords/${match.params.instrument}/chords/${match.params.key}/${match.params.suffix}`}>return</Link> ]</span></h1>
       <div className='Chord'>
         <a href={`${process.env.PUBLIC_URL}/svg/${match.params.instrument}/chords/${match.params.key}/${match.params.suffix}/${match.params.key}-${match.params.suffix}-${match.params.variation}.svg`}>
-          <Chord chord={chord} instrument={instrument.main} version={parseInt(match.params.variation, 10)} />
+          <Chord chord={variation} instrument={instrument.main} />
         </a>
         <Play chord={variation.midi} />
       </div>
@@ -40,9 +41,7 @@ Variation.propTypes = {
       suffix: React.PropTypes.string,
       variation: React.PropTypes.string
     })
-  }),
-  push: React.PropTypes.func.isRequired,
-  location: React.PropTypes.object
+  })
 }
 
 export default withRouter(Variation)

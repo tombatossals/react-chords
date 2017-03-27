@@ -40,7 +40,7 @@ const Variations = ({ match }) => {
             <div key={index2} className='Chord unit-1-3 site-box text-center'>
               <Link to={`/react-chords/${match.params.instrument}/chords/${match.params.key}/${match.params.suffix}/${index2 + 1 + index1 * 3}`} key={chord.suffix} className='Chord'>
                 <h2>Variation {index2 + 1 + index1 * 3}</h2>
-                <Chord key={index1} chord={chord} instrument={instrument.main} version={index2 + index1 * 3 + 1} />
+                <Chord key={index1} chord={chord.positions[index2 + index1 * 3]} instrument={instrument.main} />
               </Link>
               <Play chord={position.midi} />
             </div>
@@ -57,9 +57,7 @@ Variations.propTypes = {
       key: React.PropTypes.string,
       suffix: React.PropTypes.string
     })
-  }),
-  push: React.PropTypes.func.isRequired,
-  location: React.PropTypes.object
+  })
 }
 
 export default withRouter(Variations)

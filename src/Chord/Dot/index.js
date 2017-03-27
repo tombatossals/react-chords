@@ -42,7 +42,7 @@ const Dot = ({ string, fret, finger, strings, lite }) =>
         <text
           fontSize='3pt'
           fontFamily='Verdana'
-          textAnchor='middle'          
+          textAnchor='middle'
           fill='white'
           x={getStringPosition(string, strings)}
           y={positions.finger[fret]}
