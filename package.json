@@ -12,7 +12,7 @@
     "standard": "^9.0.0"
   },
   "dependencies": {
-    "@tombatossals/chords-db": "^0.3.0",
+    "@tombatossals/chords-db": "^0.3.1",
     "mobi.css": "^1.2.0",
     "open-color": "^1.4.0",
     "react": "^15.4.1",
