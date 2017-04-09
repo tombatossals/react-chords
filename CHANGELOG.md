@@ -1,4 +1,10 @@
-## 0.0.15 (Febraury 30, 2016)
+## 0.2.0 (Apr 9, 2017)
+
+### Package
+
+* Packaged only as a react component, not webapp
+
+## 0.0.15 (Febraury 30, 2017)
 
 ### Webapp
 

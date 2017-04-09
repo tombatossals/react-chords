@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const positions = {
   string: [ 50, 40, 30, 20, 10, 0 ],
@@ -50,11 +51,11 @@ const Dot = ({ string, fret, finger, strings, lite }) =>
     </g>)
 
 Dot.propTypes = {
-  string: React.PropTypes.number,
-  fret: React.PropTypes.number,
-  finger: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5 ]),
-  strings: React.PropTypes.number.isRequired,
-  lite: React.PropTypes.bool
+  string: PropTypes.number,
+  fret: PropTypes.number,
+  finger: PropTypes.oneOf([ 0, 1, 2, 3, 4, 5 ]),
+  strings: PropTypes.number.isRequired,
+  lite: PropTypes.bool
 }
 
 Dot.defaultProps = {

@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Neck from './Neck'
 import Dot from './Dot'
 import Barre from './Barre'
-import { instrumentPropTypes } from '../utils/propTypes'
+import { instrumentPropTypes } from './propTypes'
 
 const Chord = ({ chord, instrument, lite }) =>
   chord ? <svg
@@ -41,9 +42,9 @@ const Chord = ({ chord, instrument, lite }) =>
   </svg> : null
 
 Chord.propTypes = {
-  chord: React.PropTypes.any,
+  chord: PropTypes.any,
   instrument: instrumentPropTypes,
-  lite: React.PropTypes.bool
+  lite: PropTypes.bool
 }
 
 Chord.defaultProps = {

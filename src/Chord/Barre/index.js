@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const fretXPosition = {
   4: [ 10, 20, 30, 40, 50 ],
@@ -31,9 +32,9 @@ const Barre = ({ barre, frets, strings }) => {
 }
 
 Barre.propTypes = {
-  frets: React.PropTypes.array,
-  barre: React.PropTypes.number,
-  strings: React.PropTypes.number.isRequired
+  frets: PropTypes.array,
+  barre: PropTypes.number,
+  strings: PropTypes.number.isRequired
 }
 
 export default Barre

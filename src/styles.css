@@ -1,16 +1,8 @@
-html {
-  height: 100%;
-  overflow-y: scroll; /* Always active scrollbar */
-  background-color: var(--oc-gray-1);
-}
-
 body {
-  background: inherit;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222;
-  min-height: 100%;
-  position: relative;
-  margin: 0 10vw;
+  margin: 0 auto;
+  max-width: 820px;
   padding: 0;
 }
 

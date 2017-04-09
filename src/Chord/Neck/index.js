@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const offsets = {
   4: {
@@ -65,12 +66,12 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
 }
 
 Neck.propTypes = {
-  tunning: React.PropTypes.array,
-  frets: React.PropTypes.array,
-  strings: React.PropTypes.number.isRequired,
-  baseFret: React.PropTypes.oneOf([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]),
-  fretsOnChord: React.PropTypes.number.isRequired,
-  lite: React.PropTypes.bool
+  tunning: PropTypes.array,
+  frets: PropTypes.array,
+  strings: PropTypes.number.isRequired,
+  baseFret: PropTypes.oneOf([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]),
+  fretsOnChord: PropTypes.number.isRequired,
+  lite: PropTypes.bool
 }
 
 Neck.defaultProps = {

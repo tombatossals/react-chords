@@ -1,4 +1,4 @@
-import { PropTypes } from 'react'
+import PropTypes from 'prop-types'
 
 export const instrumentPropTypes = PropTypes.shape({
   strings: PropTypes.number.isRequired,
@@ -10,8 +10,6 @@ export const instrumentPropTypes = PropTypes.shape({
     'G', 'G#', 'Gb'
   ])),
   tunnings: PropTypes.shape({
-    standard: PropTypes.arrayOf(PropTypes.oneOf([
-      'A', 'B', 'C', 'D', 'E', 'F', 'G'
-    ])).isRequired
+    standard: PropTypes.arrayOf(PropTypes.string).isRequired
   }).isRequired
 })
