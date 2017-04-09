@@ -1,3 +1,9 @@
+## 0.2.1 (Apr 9, 2017)
+
+### Package
+
+* No external dependencies, now react-chords is an isolated component
+
 ## 0.2.0 (Apr 9, 2017)
 
 ### Package
