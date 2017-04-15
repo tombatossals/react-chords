@@ -1,3 +1,9 @@
+## 0.2.2 (Apr 15, 2017)
+
+### Package
+
+* Bugs solved, updated libraries
+
 ## 0.2.1 (Apr 9, 2017)
 
 ### Package

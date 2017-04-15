@@ -21,7 +21,7 @@ const Chord = ({ chord, instrument, lite }) =>
         baseFret={chord.baseFret}
         lite={lite}
       />
-      {chord.barres.map((barre, index) =>
+      {chord.barres && chord.barres.map((barre, index) =>
         <Barre
           key={index}
           barre={barre}
