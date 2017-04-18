@@ -34,7 +34,7 @@ const Chord = ({ chord, instrument, lite }) =>
           string={instrument.strings - index}
           fret={fret}
           strings={instrument.strings}
-          finger={chord.fingers[index]}
+          finger={chord.fingers && chord.fingers[index]}
           lite={lite}
         />
       ))}

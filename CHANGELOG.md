@@ -1,3 +1,9 @@
+## 0.2.3 (Apr 18, 2017)
+
+### Package
+
+* Fixed a bug with chord finger render
+
 ## 0.2.2 (Apr 15, 2017)
 
 ### Package
