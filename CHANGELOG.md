@@ -1,3 +1,9 @@
+## 0.2.4 (May 29, 2017)
+
+### Rendering
+
+* Better position of the base fret indicator for ukelele chords
+
 ## 0.2.3 (Apr 18, 2017)
 
 ### Package
