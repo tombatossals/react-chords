@@ -24,12 +24,12 @@ const getNeckPath = (strings, fretsOnChord) =>
   Array.apply(null, Array(fretsOnChord + 1)).map((_, pos) => getNeckHorizonalLine(pos, strings)).join(' ').concat(
     Array.apply(null, Array(strings)).map((_, pos) => getNeckVerticalLine(pos, strings)).join(' '))
 
-const getBarreOffset = (strings, frets, baseFret) =>
+const getBarreOffset = (strings, frets, baseFret, capo) =>
   strings === 6
-  ? frets[0] === 1 ? (baseFret > 9 ? -12 : -11) : (baseFret > 9 ? -10 : -7)
-  : frets[0] === 1 ? (baseFret > 9 ? -1 : 0) : (baseFret > 9 ? 3 : 4)
+  ? frets[0] === 1 || capo ? (baseFret > 9 ? -12 : -11) : (baseFret > 9 ? -10 : -7)
+  : frets[0] === 1 || capo ? (baseFret > 9 ? -1 : 0) : (baseFret > 9 ? 3 : 4)
 
-const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
+const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, capo, lite }) => {
   return <g>
     <path
       stroke='#444'
@@ -49,7 +49,7 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
         fontSize='0.25rem'
         fill='#444'
         fontFamily='Verdana'
-        x={getBarreOffset(strings, frets, baseFret)}
+        x={getBarreOffset(strings, frets, baseFret, capo)}
         y='8'
       >{baseFret}fr</text> }
     { !lite &&
@@ -73,6 +73,7 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, lite }) => {
 Neck.propTypes = {
   tunning: PropTypes.array,
   frets: PropTypes.array,
+  capo: PropTypes.bool,
   strings: PropTypes.number.isRequired,
   baseFret: PropTypes.oneOf([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]),
   fretsOnChord: PropTypes.number.isRequired,

@@ -5,6 +5,11 @@ import Dot from './Dot'
 import Barre from './Barre'
 import { instrumentPropTypes } from './propTypes'
 
+const onlyDots = chord =>
+  chord.frets
+  .map((f, index) => ({ position: index, value: f }))
+  .filter(f => !chord.barres || chord.barres.indexOf(f.value) === -1)
+
 const Chord = ({ chord, instrument, lite }) =>
   chord ? <svg
     width='100%'
@@ -17,24 +22,29 @@ const Chord = ({ chord, instrument, lite }) =>
         tunning={instrument.tunnings.standard}
         strings={instrument.strings}
         frets={chord.frets}
+        capo={chord.capo}
         fretsOnChord={instrument.fretsOnChord}
         baseFret={chord.baseFret}
         lite={lite}
       />
+
       {chord.barres && chord.barres.map((barre, index) =>
         <Barre
           key={index}
+          capo={index === 0 && chord.capo}
           barre={barre}
-          strings={instrument.strings}
+          finger={chord.fingers && chord.fingers[chord.frets.indexOf(barre)]}
           frets={chord.frets}
+          lite={lite}
         />)}
-      {chord.frets.map((fret, index) => (
+
+      {onlyDots(chord).map(fret => (
         <Dot
-          key={index}
-          string={instrument.strings - index}
-          fret={fret}
+          key={fret.position}
+          string={instrument.strings - fret.position}
+          fret={fret.value}
           strings={instrument.strings}
-          finger={chord.fingers && chord.fingers[index]}
+          finger={chord.fingers && chord.fingers[fret.position]}
           lite={lite}
         />
       ))}

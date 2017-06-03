@@ -1,3 +1,9 @@
+## 0.2.5 (Jun 03, 2017)
+
+### Rendering
+
+* Better rendering of barred chords
+
 ## 0.2.4 (May 29, 2017)
 
 ### Rendering
