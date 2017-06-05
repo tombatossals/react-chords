@@ -21,25 +21,51 @@ const positions = {
 const getStringPosition = (string, strings) =>
   positions.string[ string + offset[strings] ]
 
-const onlyBarres = (frets, barre, capo) =>
-  capo
-  ? [{ position: 0, value: barre }, { position: frets.length - 1, value: barre }]
-  : frets
-  .map((f, index) => ({ position: index, value: f }))
+const onlyBarres = (frets, barre) =>
+  frets.map((f, index) => ({ position: index, value: f }))
   .filter(f => f.value === barre)
 
 
 const Barre = ({ barre, frets, capo, finger, lite }) => {
   const strings = frets.length
-  const barreFrets = onlyBarres(frets, barre, capo)
+  const barreFrets = onlyBarres(frets, barre)
 
-  const string1 = capo ? 0 : barreFrets[0].position
-  const string2 = capo ? strings - 1 : barreFrets[barreFrets.length - 1].position
+  const string1 = barreFrets[0].position
+  const string2 = barreFrets[barreFrets.length - 1].position
   const width = (string2 - string1) * 10
   const y = fretYPosition[barre - 1]
 
+  console.log(positions.fret[barreFrets[0].value], getStringPosition(strings, strings))
   return (
     <g>
+      {capo &&
+      <g>
+        <path d={`
+          M ${positions.fret[barreFrets[0].value]}, ${getStringPosition(strings, strings)}
+          m -4, 0
+          a -4,-4 0.5 1,1 8,0
+        `}
+          fill='#555'
+          fillOpacity={0.2}
+          transform={`rotate(-90 ${positions.fret[barreFrets[0].value]}, ${getStringPosition(strings, strings)})`}
+        />
+        <rect
+          fill='#555'
+          x={fretXPosition[strings][0]}
+          y={fretYPosition[barre - 1]}
+          width={(strings - 1) * 10}
+          fillOpacity={0.2}
+          height={8.25}
+        />
+        <circle
+          fill='#555'
+          cx={getStringPosition(1, strings)}
+          cy={positions.fret[barreFrets[0].value]}
+          fillOpacity={0.2}
+          r={4}
+        />
+      </g>
+      }
       {barreFrets.map(fret =>
         <circle
           key={fret.position}
