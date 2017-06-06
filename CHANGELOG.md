@@ -1,3 +1,9 @@
+## 0.2.6 (Jun 06, 2017)
+
+### Rendering
+
+* Capo rendered as optional 
+
 ## 0.2.5 (Jun 03, 2017)
 
 ### Rendering
