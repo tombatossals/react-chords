@@ -35,7 +35,6 @@ const Barre = ({ barre, frets, capo, finger, lite }) => {
   const width = (string2 - string1) * 10
   const y = fretYPosition[barre - 1]
 
-  console.log(positions.fret[barreFrets[0].value], getStringPosition(strings, strings))
   return (
     <g>
       {capo &&
