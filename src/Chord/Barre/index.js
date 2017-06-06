@@ -40,15 +40,19 @@ const Barre = ({ barre, frets, capo, finger, lite }) => {
     <g>
       {capo &&
       <g>
-        <path d={`
-          M ${positions.fret[barreFrets[0].value]}, ${getStringPosition(strings, strings)}
-          m -4, 0
-          a -4,-4 0.5 1,1 8,0
-        `}
-          fill='#555'
-          fillOpacity={0.2}
-          transform={`rotate(-90 ${positions.fret[barreFrets[0].value]}, ${getStringPosition(strings, strings)})`}
-        />
+        <g
+          transform={`translate(${getStringPosition(strings, strings)}, ${positions.fret[barreFrets[0].value]})`}
+          >
+          <path d={`
+            M 0, 0
+            m -4, 0
+            a 4,4 0 1,1 8,0
+          `}
+            fill='#555'
+            fillOpacity={0.2}
+            transform='rotate(-90)'
+          />
+        </g>
         <rect
           fill='#555'
           x={fretXPosition[strings][0]}
@@ -57,13 +61,19 @@ const Barre = ({ barre, frets, capo, finger, lite }) => {
           fillOpacity={0.2}
           height={8.25}
         />
-        <circle
-          fill='#555'
-          cx={getStringPosition(1, strings)}
-          cy={positions.fret[barreFrets[0].value]}
-          fillOpacity={0.2}
-          r={4}
-        />
+        <g
+          transform={`translate(${getStringPosition(1, strings)}, ${positions.fret[barreFrets[0].value]})`}
+          >
+          <path d={`
+            M 0, 0
+            m -4, 0
+            a 4,4 0 1,1 8,0
+          `}
+            fill='#555'
+            fillOpacity={0.2}
+            transform='rotate(90)'
+          />
+        </g>
       </g>
       }
       {barreFrets.map(fret =>
