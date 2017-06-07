@@ -1,3 +1,9 @@
+## 0.2.7 (Jun 07, 2017)
+
+### Rendering
+
+* Removed uneeded code
+
 ## 0.2.6 (Jun 06, 2017)
 
 ### Rendering
