@@ -54,7 +54,7 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, capo, lite }) =
       >{baseFret}fr</text> }
     { !lite &&
       <g>
-        { tunning.slice().reverse().map((note, index) =>
+        { tunning.slice().map((note, index) =>
           <text
             key={index}
             fontSize='0.3rem'
