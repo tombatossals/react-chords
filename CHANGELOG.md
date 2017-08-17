@@ -1,4 +1,8 @@
-## 0.2.8 (Aug 167, 2017)
+## 0.2.9 (Aug 17, 2017)
+
+* Dependency on babel-preset-env
+
+## 0.2.8 (Aug 16, 2017)
 
 * Bug fixed
 
