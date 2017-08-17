@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir lib",
-    "standard": "standard"
+    "standard": "standard src"
   },
   "repository": {
     "type": "git",

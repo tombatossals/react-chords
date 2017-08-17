@@ -25,7 +25,6 @@ const onlyBarres = (frets, barre) =>
   frets.map((f, index) => ({ position: index, value: f }))
   .filter(f => f.value === barre)
 
-
 const Barre = ({ barre, frets, capo, finger, lite }) => {
   const strings = frets.length
   const barreFrets = onlyBarres(frets, barre)
