@@ -1,13 +1,12 @@
 {
   "name": "@tombatossals/react-chords",
   "description": "React library to easily render instrument chord diagrams",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "private": false,
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.16.0",
-    "standard": "^10.0.3"
+    "babel-preset-react": "^6.16.0"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
@@ -16,7 +15,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir lib",
-    "standard": "standard src"
+    "prettier": "prettier --single-quote --write \"src/**/*.{js,jsx}\""
   },
   "repository": {
     "type": "git",
@@ -35,5 +34,17 @@
   "bugs": {
     "url": "https://github.com/tombatossals/react-chords/issues"
   },
-  "homepage": "https://tombatossals.github.io/react-chords"
+  "homepage": "https://tombatossals.github.io/react-chords",
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+  }
 }
