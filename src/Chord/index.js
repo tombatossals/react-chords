@@ -19,7 +19,7 @@ const Chord = ({ chord, instrument, lite }) =>
     <g
       transform='translate(13, 13)'>
       <Neck
-        tunning={instrument.tunnings.standard}
+        tuning={instrument.tunings.standard}
         strings={instrument.strings}
         frets={chord.frets}
         capo={chord.capo}

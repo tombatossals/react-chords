@@ -9,7 +9,7 @@ export const instrumentPropTypes = PropTypes.shape({
     'D', 'Db', 'D#', 'E', 'Eb', 'F', 'F#',
     'G', 'G#', 'Gb'
   ])),
-  tunnings: PropTypes.shape({
+  tunings: PropTypes.shape({
     standard: PropTypes.arrayOf(PropTypes.string).isRequired
   }).isRequired
 })
