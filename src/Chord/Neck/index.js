@@ -29,7 +29,7 @@ const getBarreOffset = (strings, frets, baseFret, capo) =>
   ? frets[0] === 1 || capo ? (baseFret > 9 ? -12 : -11) : (baseFret > 9 ? -10 : -7)
   : frets[0] === 1 || capo ? (baseFret > 9 ? -1 : 0) : (baseFret > 9 ? 3 : 4)
 
-const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, capo, lite }) => {
+const Neck = ({ tuning, frets, strings, fretsOnChord, baseFret, capo, lite }) => {
   return <g>
     <path
       stroke='#444'
@@ -54,7 +54,7 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, capo, lite }) =
       >{baseFret}fr</text> }
     { !lite &&
       <g>
-        { tunning.slice().map((note, index) =>
+        { tuning.slice().map((note, index) =>
           <text
             key={index}
             fontSize='0.3rem'
@@ -71,7 +71,7 @@ const Neck = ({ tunning, frets, strings, fretsOnChord, baseFret, capo, lite }) =
 }
 
 Neck.propTypes = {
-  tunning: PropTypes.array,
+  tuning: PropTypes.array,
   frets: PropTypes.array,
   capo: PropTypes.bool,
   strings: PropTypes.number.isRequired,
