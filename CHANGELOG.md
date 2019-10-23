@@ -1,3 +1,8 @@
+## 0.2.10 (Oct 23, 2019)
+
+* Updated libraries
+* Published pending fixes
+
 ## 0.2.9 (Aug 17, 2017)
 
 * Dependency on babel-preset-env
