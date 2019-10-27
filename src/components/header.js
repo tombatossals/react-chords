@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import Img from "gatsby-image"
 import { StaticQuery, graphql } from "gatsby"
+import "./header.css"
 
 const Header = ({ siteTitle, data }) => (
   <StaticQuery
@@ -42,20 +43,13 @@ const Header = ({ siteTitle, data }) => (
               {siteTitle}
             </Link>
           </h1>
-          <div
-            style={{
-              background: "white",
-              opacity: 0.5,
-              padding: "0 .5em",
-              margin: 0,
-              borderRadius: "8px",
-              boxShadow: "0 0 10px",
-            }}
-          >
-            <Img
-              style={{ verticalAlign: "middle" }}
-              fixed={data.file.childImageSharp.fixed}
-            />
+          <div className="github">
+            <a href="http://github.com/tombatossals/react-chords">
+              <Img
+                style={{ verticalAlign: "middle" }}
+                fixed={data.file.childImageSharp.fixed}
+              />
+            </a>
           </div>
         </div>
       </header>
