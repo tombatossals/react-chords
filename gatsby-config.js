@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/react-chords",
   siteMetadata: {
     title: `Guitar Chords Database`,
     description: `Guitar and Ukelele chords visualization libraries`,
