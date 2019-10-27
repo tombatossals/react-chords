@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@tombatossals/chords-db": "^0.4.3",
+    "@tombatossals/react-chords": "^0.2.9",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
@@ -45,5 +46,17 @@
   "bugs": {
     "url": "https://github.com/tombatossals/react-chords/issues"
   },
-  "homepage": "https://tombatossals.github.io/react-chords"
+  "homepage": "https://tombatossals.github.io/react-chords",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

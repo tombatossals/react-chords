@@ -1240,6 +1240,15 @@
   resolved "https://registry.yarnpkg.com/@tombatossals/chords-db/-/chords-db-0.4.3.tgz#4e4a9fee0b14e53eacbfd92ad839eed9196d6646"
   integrity sha512-6RVm0rFfhpq3sxuG9JnHxAgLSJHHAmYsCnd2VYeBPWoCt2DRD6zIQY3zOxynLWaTNo59z5aDxFrRlDioV5Jw7Q==
 
+"@tombatossals/react-chords@^0.2.9":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@tombatossals/react-chords/-/react-chords-0.2.10.tgz#9af3696b065f0e3705f70d7b356970ee9b7fbcbe"
+  integrity sha512-z7AD8trDMzwU41n65p4vp0ltTu5kYWHxkQSHLWtIzaBRxgiMTPVrUO8lxuk+Lmp9lnI5URaGVwItLdrlC2giYw==
+  dependencies:
+    prop-types "^15.7.2"
+    react "^16.11.0"
+    react-dom "^16.11.0"
+
 "@types/babel__core@^7.1.0":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.3.tgz#e441ea7df63cd080dfcd02ab199e6d16a735fc30"
