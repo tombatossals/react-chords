@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import React from "react"
 import Img from "gatsby-image"
 import { StaticQuery, graphql } from "gatsby"
-import "./header.css"
 
 const Header = ({ siteTitle, data }) => (
   <StaticQuery
@@ -11,7 +10,7 @@ const Header = ({ siteTitle, data }) => (
       query {
         file(relativePath: { eq: "github-logo.png" }) {
           childImageSharp {
-            fixed(height: 48) {
+            fixed(width: 100, height: 41) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -19,39 +18,24 @@ const Header = ({ siteTitle, data }) => (
       }
     `}
     render={data => (
-      <header
-        style={{
-          background: `rebeccapurple`,
-          marginBottom: `1.45rem`,
-        }}
-      >
-        <div
-          style={{
-            margin: `0 auto`,
-            display: `flex`,
-            padding: `1.45rem 1.0875rem`,
-          }}
-        >
-          <h1 style={{ margin: 0, flexGrow: 1 }}>
+      <header className="bg-green text-white py-6">
+        <div className="container flex items-center justify-between mx-auto px-4">
+          <h1 className="text-2xl">
             <Link
               to="/"
               style={{
-                color: `white`,
                 textDecoration: `none`,
               }}
             >
-              {siteTitle}
-            </Link>
-          </h1>
-          <div className="github">
+              {siteTitle}{" "}
+            </Link>{" "}
+          </h1>{" "}
+          <div className="max-w-sm mx-auto flex p-1 bg-white opacity-75 hover:opacity-100 rounded-lg shadow-xl">
             <a href="http://github.com/tombatossals/react-chords">
-              <Img
-                style={{ verticalAlign: "middle" }}
-                fixed={data.file.childImageSharp.fixed}
-              />
-            </a>
-          </div>
-        </div>
+              <Img style={{ margin: 0 }} fixed={data.file.childImageSharp.fixed} />{" "}
+            </a>{" "}
+          </div>{" "}
+        </div>{" "}
       </header>
     )}
   />
