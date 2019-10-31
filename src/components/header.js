@@ -18,9 +18,9 @@ const Header = ({ siteTitle, data }) => (
       }
     `}
     render={data => (
-      <header className="bg-green text-white py-6">
+      <header className="py-6">
         <div className="container flex items-center justify-between mx-auto px-4">
-          <h1 className="text-2xl">
+          <h1 className="flex-grow text-2xl">
             <Link
               to="/"
               style={{
@@ -30,9 +30,12 @@ const Header = ({ siteTitle, data }) => (
               {siteTitle}{" "}
             </Link>{" "}
           </h1>{" "}
-          <div className="max-w-sm mx-auto flex p-1 bg-white opacity-75 hover:opacity-100 rounded-lg shadow-xl">
+          <div className="max-w-sm mx-auto flex p-1 pb-0 bg-gray-200 hover:bg-gray-100 hover:shadow-md rounded-lg border shadow-xs">
             <a href="http://github.com/tombatossals/react-chords">
-              <Img style={{ margin: 0 }} fixed={data.file.childImageSharp.fixed} />{" "}
+              <Img
+                style={{ margin: 0 }}
+                fixed={data.file.childImageSharp.fixed}
+              />{" "}
             </a>{" "}
           </div>{" "}
         </div>{" "}
