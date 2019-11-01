@@ -1,7 +1,10 @@
 module.exports = {
   theme: {
-    extend: {}
+    fontFamily: {
+      body: ["Droid Sans"],
+    },
+    extend: {},
   },
   variants: {},
-  plugins: []
+  plugins: [],
 }

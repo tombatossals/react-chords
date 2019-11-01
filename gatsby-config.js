@@ -1,26 +1,25 @@
 module.exports = {
   pathPrefix: "/react-chords",
   siteMetadata: {
-    title: `Guitar Chords Database`,
+    title: `Chords Database`,
     description: `Guitar and Ukelele chords visualization libraries`,
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-postcss',
+      resolve: "gatsby-plugin-postcss",
       options: {
-        postCssPlugins: [ require("tailwindcss")],
-
-      }
+        postCssPlugins: [require("tailwindcss")],
+      },
     },
     {
-      resolve: 'gatsby-plugin-purgecss',
+      resolve: "gatsby-plugin-purgecss",
       options: {
         printRejected: false,
         develop: false,
-        tailwind: true
-      }
+        tailwind: true,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -33,7 +32,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Work Sans", "ars-maquette-web"],
+          families: ["Droid Sans", "Droid Serif"],
         },
       },
     },

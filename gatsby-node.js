@@ -1,7 +1,40 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require("path")
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions
+  // Create pages for each markdown file.
+  const instrumentTpl = path.resolve(`src/pages/index.js`)
+  const guitar = require(`@tombatossals/chords-db/lib/guitar.json`)
+  const ukulele = require(`@tombatossals/chords-db/lib/ukulele.json`)
 
-// You can delete this file if you're not using it
+  const instruments = { guitar: guitar, ukulele: ukulele }
+
+  Object.keys(instruments).forEach(instrument => {
+    if (instrument === "guitar") {
+      createPage({
+        path: `/`,
+        component: instrumentTpl,
+        context: {
+          instrument,
+        },
+      })
+    }
+    createPage({
+      path: `/${instrument}`,
+      component: instrumentTpl,
+      context: {
+        instrument,
+      },
+    })
+
+    instruments[instrument].keys.forEach(key => {
+      createPage({
+        path: `/guitar/${key.replace("#", "sharp")}`,
+        component: instrumentTpl,
+        context: {
+          instrument,
+          key,
+        },
+      })
+    })
+  })
+}

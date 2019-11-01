@@ -11,8 +11,27 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Menu from "./menu"
+import "./layout.css"
 
-const Layout = ({ children }) => {
+const guitar = require(`@tombatossals/chords-db/lib/guitar.json`)
+const ukulele = require(`@tombatossals/chords-db/lib/guitar.json`)
+
+const only_main_position = chord =>
+  Object.assign(chord, { positions: [chord.positions[0]] })
+
+const get_chords = (chords, key, suffix) => {
+  const selection = []
+  if (!key && !suffix) {
+    Object.keys(chords).map(k =>
+      chords[k].map(chord => selection.push(only_main_position(chord)))
+    )
+  } else if (!suffix) {
+    chords[key].map(chord => selection.push(only_main_position(chord)))
+  }
+  return selection
+}
+
+const Layout = ({ children, pageContext }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,21 +42,24 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const instruments = { guitar, ukulele }
+  const i = pageContext.instrument ? pageContext.instrument : "guitar"
+  const key = pageContext.key ? pageContext.key.replace("#", "sharp") : ""
+  const suffix = pageContext.suffix
+
+  const chords = get_chords(instruments[i].chords, key, suffix)
+
+  console.log(chords)
+  const instrument = Object.assign(instruments[i].main, {
+    tunings: instruments[i].tunings,
+  })
+
   return (
-    <>
+    <div className="container mx-auto text-gray-700">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Menu />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-      </div>
-    </>
+      <Menu keys={instruments[i].keys} selectedKey={key} />
+      <main>{React.cloneElement(children, { chords, instrument })}</main>
+    </div>
   )
 }
 
