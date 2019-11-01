@@ -69,7 +69,11 @@ const Layout = ({ children, pageContext }) => {
   return (
     <div className="container mx-auto text-gray-700">
       <Header siteTitle={data.site.siteMetadata.title} instrument={i} />
-      <Menu keys={["All"].concat(instruments[i].keys)} instrument={i} selectedKey={key} />
+      <Menu
+        keys={["All"].concat(instruments[i].keys)}
+        instrument={i}
+        selectedKey={key}
+      />
       <main className="flex mb-4 content-center">
         {key && (
           <div className="w-1/8">
@@ -83,7 +87,9 @@ const Layout = ({ children, pageContext }) => {
           </div>
         )}
         <div className={key ? "w-7/8" : "w-8/8"}>
-          {React.cloneElement(children, { chords, instrument, lite })}
+          <div className={lite ? "litegrid" : "maingrid"}>
+            {React.cloneElement(children, { chords, instrument, lite })}
+          </div>
         </div>
       </main>
     </div>
