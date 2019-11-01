@@ -35,6 +35,21 @@ exports.createPages = async ({ actions }) => {
           key,
         },
       })
+
+      instruments[instrument].suffixes.forEach(suffix =>
+        createPage({
+          path: `/guitar/${key.replace("#", "sharp")}/${suffix.replace(
+            "#",
+            "sharp"
+          )}`,
+          component: instrumentTpl,
+          context: {
+            instrument,
+            key,
+            suffix
+          },
+        })
+      )
     })
   })
 }

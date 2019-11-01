@@ -29,7 +29,25 @@ const Header = ({ siteTitle, data }) => (
             >
               {siteTitle}{" "}
             </Link>{" "}
-          </h1>{" "}
+          </h1>
+          <ul className="p-4 flex">
+            <li className="mr-3">
+              <Link
+                className="inline-block border border-blue-500 font-bold rounded py-1 px-3 bg-blue-500 text-white"
+                to={`/guitar`}
+              >
+                Guitar
+              </Link>
+            </li>
+            <li className="mr-3">
+              <Link
+                className="inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-1 px-3"
+                to={`/ukulele`}
+              >
+                Ukulele
+              </Link>
+            </li>
+          </ul>
           <div className="max-w-sm mx-auto flex p-1 pb-0  hover:bg-gray-100 rounded-lg border shadow-xs">
             <a href="http://github.com/tombatossals/react-chords">
               <Img

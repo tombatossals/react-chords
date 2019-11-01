@@ -1,7 +1,6 @@
 .maingrid {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  grid-gap: .5rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -12,7 +11,7 @@
 
 @media screen and (min-width: 992px) {
   .maingrid {
-    grid-template-columns: repeat(8, auto);
+    grid-template-columns: repeat(16, auto);
   }
 }
 
