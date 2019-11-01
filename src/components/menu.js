@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Menu = ({ keys, selectedKey }) => (
+const Menu = ({ instrument, keys, selectedKey }) => (
   <ul className="pl-3 flex flex-wrap">
     <li className="font-bold p-1">Keys:</li>
     {keys.map(key => (
@@ -16,7 +16,7 @@ const Menu = ({ keys, selectedKey }) => (
             `inline-block border font-bold rounded py-1 px-3`
           }
           to={
-            key === "All" ? `/guitar` : `/guitar/${key.replace("#", "sharp")}`
+            key === "All" ? `/${instrument}` : `/${instrument}/${key.replace("#", "sharp")}`
           }
         >
           {key}
@@ -25,5 +25,10 @@ const Menu = ({ keys, selectedKey }) => (
     ))}
   </ul>
 )
+
+Menu.propTypes = {
+  keys: PropTypes.arrayOf(PropTypes.string),
+  selectedKey: PropTypes.string,
+}
 
 export default Menu

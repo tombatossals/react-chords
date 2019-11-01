@@ -13,13 +13,13 @@ import Header from "./header"
 import Menu from "./menu"
 import LeftMenu from "./leftmenu"
 
-import "./layout.css"
+import "../styles/layout.css"
 
 const guitar = require(`@tombatossals/chords-db/lib/guitar.json`)
-const ukulele = require(`@tombatossals/chords-db/lib/guitar.json`)
+const ukulele = require(`@tombatossals/chords-db/lib/ukulele.json`)
 
 const only_main_position = chord =>
-  Object.assign(chord, { positions: [chord.positions[0]] })
+  Object.assign({}, chord, { positions: [chord.positions[0]] })
 
 const get_chords = (chords, key, suffix) => {
   const selection = []
@@ -35,6 +35,8 @@ const get_chords = (chords, key, suffix) => {
         .filter(c => c.suffix === suffix)
         .map(chord => selection.push(only_main_position(chord)))
     )
+  } else {
+    return chords[key].filter(c => c.suffix === suffix)
   }
   return selection
 }
@@ -66,20 +68,21 @@ const Layout = ({ children, pageContext }) => {
   const lite = !key && !suffix
   return (
     <div className="container mx-auto text-gray-700">
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <Menu keys={["All"].concat(instruments[i].keys)} selectedKey={key} />
+      <Header siteTitle={data.site.siteMetadata.title} instrument={i} />
+      <Menu keys={["All"].concat(instruments[i].keys)} instrument={i} selectedKey={key} />
       <main className="flex mb-4 content-center">
         {key && (
-          <div className="w-1/6">
+          <div className="w-1/8">
             <LeftMenu
               keys={["All"].concat(instruments[i].keys)}
               selectedKey={key}
+              instrument={i}
               suffixes={instruments[i].suffixes}
               selectedSuffix={suffix}
             />
           </div>
         )}
-        <div className={key ? "w-5/6" : "w-6/6"}>
+        <div className={key ? "w-7/8" : "w-8/8"}>
           {React.cloneElement(children, { chords, instrument, lite })}
         </div>
       </main>
