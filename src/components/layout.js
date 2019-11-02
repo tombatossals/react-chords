@@ -59,7 +59,11 @@ const Layout = ({ children, pageContext }) => {
     ? pageContext.suffix.replace("#", "sharp")
     : ""
 
-  const chords = get_chords(instruments[i].chords, key, suffix)
+  const chords = get_chords(
+    instruments[i].chords,
+    key,
+    suffix.replace("sharp", "#")
+  )
 
   const instrument = Object.assign(instruments[i].main, {
     tunings: instruments[i].tunings,
