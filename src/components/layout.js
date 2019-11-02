@@ -72,6 +72,8 @@ const Layout = ({ children, pageContext }) => {
   })
 
   const lite = !key && !suffix
+  const svg = pageContext.key && pageContext.suffix
+  console.log(svg)
   return (
     <div className="container mx-auto text-gray-700">
       <Header siteTitle={data.site.siteMetadata.title} instrument={i} />
@@ -93,7 +95,7 @@ const Layout = ({ children, pageContext }) => {
         )}
         <div className={key ? "w-7/8" : "w-8/8"}>
           <div className={lite ? "litegrid" : "maingrid"}>
-            {React.cloneElement(children, { chords, instrument, lite })}
+            {React.cloneElement(children, { chords, instrument, lite, svg })}
           </div>
         </div>
       </main>
