@@ -57,7 +57,7 @@ ReactDOM.render(
 
 ```
 
-##Example of use
+## Example of use
 Using the [chords-db](http://github.com/tombatossals/chords-db) database we can get this result:
-![react-chords](https://raw.githubusercontent.com/tombatossals/react-chords/webpage/src/images/react-chords.png)
+[![react-chords](https://raw.githubusercontent.com/tombatossals/react-chords/webpage/src/images/react-chords.png)][https://tombatossals.github.io/react-chords/]
 
