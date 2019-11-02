@@ -1133,10 +1133,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@tombatossals/chords-db@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@tombatossals/chords-db/-/chords-db-0.5.0.tgz#a580cf08e7abdc5009125335a55348e7e835d8f5"
-  integrity sha512-e1vRXA2eQq5/VoCQfz+/ThDsP++/jzEeh+qeRxT+dAoh14mU5c8L2NxnHuA/5ClhBHDdxSc647fA5zrAlaUsbw==
+"@tombatossals/chords-db@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@tombatossals/chords-db/-/chords-db-0.5.1.tgz#bd112b4cefb751933433ad1f7fe143e7fdf56ef8"
+  integrity sha512-5kLLtwOxmnFfpVTYfYiw1Q22NJ8msb5JeyDLre09XnUFx2l6KSeqPtJQPsVPOak4BUenlsv/j2H65KBVhB6qgQ==
 
 "@tombatossals/react-chords@^0.2.9":
   version "0.2.10"

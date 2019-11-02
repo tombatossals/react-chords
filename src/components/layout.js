@@ -18,6 +18,8 @@ import "../styles/layout.css"
 const guitar = require(`@tombatossals/chords-db/lib/guitar.json`)
 const ukulele = require(`@tombatossals/chords-db/lib/ukulele.json`)
 
+const get_suffixes = chords => chords.map(chord => chord.suffix)
+
 const only_main_position = chord =>
   Object.assign({}, chord, { positions: [chord.positions[0]] })
 
@@ -82,10 +84,9 @@ const Layout = ({ children, pageContext }) => {
         {key && (
           <div className="w-1/8">
             <LeftMenu
-              keys={["All"].concat(instruments[i].keys)}
               selectedKey={key}
               instrument={i}
-              suffixes={instruments[i].suffixes}
+              suffixes={get_suffixes(instruments[i].chords[key])}
               selectedSuffix={suffix}
             />
           </div>

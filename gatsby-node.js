@@ -38,15 +38,14 @@ exports.createPages = async ({ actions }) => {
 
       instruments[instrument].suffixes.forEach(suffix =>
         createPage({
-          path: `/${instrument}/${key.replace("#", "sharp")}/${suffix.replace(
-            "#",
-            "sharp"
-          )}`,
+          path: `/${instrument}/${key.replace("#", "sharp")}/${suffix
+            .replace("#", "sharp")
+            .replace("/", "_")}`,
           component: instrumentTpl,
           context: {
             instrument,
             key,
-            suffix
+            suffix,
           },
         })
       )
