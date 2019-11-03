@@ -9,7 +9,7 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
         return chord.positions.map((position, version) =>
           svg ? (
             <a
-              href={`/static/svg/${instrument.name}/chords/${chord.key.replace(
+              href={`/react-chords/static/svg/${instrument.name}/chords/${chord.key.replace(
                 "#",
                 "sharp"
               )}/${chord.suffix
