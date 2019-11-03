@@ -55,6 +55,7 @@ const Layout = ({ children, pageContext }) => {
   `)
 
   const instruments = { guitar, ukulele }
+  console.log(pageContext)
   const i = pageContext.instrument ? pageContext.instrument : "guitar"
   const key = pageContext.key ? pageContext.key.replace("#", "sharp") : ""
   const suffix = pageContext.suffix
@@ -73,7 +74,6 @@ const Layout = ({ children, pageContext }) => {
 
   const lite = !key && !suffix
   const svg = pageContext.key && pageContext.suffix
-  console.log(svg)
   return (
     <div className="container mx-auto text-gray-700">
       <Header siteTitle={data.site.siteMetadata.title} instrument={i} />

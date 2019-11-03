@@ -3,6 +3,7 @@ exports.createPages = async ({ actions }) => {
   const { createPage } = actions
   // Create pages for each markdown file.
   const instrumentTpl = path.resolve(`src/pages/index.js`)
+  const svgTpl = path.resolve(`src/pages/svg.js`)
   const guitar = require(`@tombatossals/chords-db/lib/guitar.json`)
   const ukulele = require(`@tombatossals/chords-db/lib/ukulele.json`)
 
@@ -26,29 +27,31 @@ exports.createPages = async ({ actions }) => {
       },
     })
 
-    instruments[instrument].keys.forEach(key => {
-      createPage({
-        path: `/${instrument}/${key.replace("#", "sharp")}`,
-        component: instrumentTpl,
-        context: {
-          instrument,
-          key,
-        },
-      })
-
-      instruments[instrument].suffixes.forEach(suffix =>
+    instruments[instrument].keys
+      .map(k => k.replace("#", "sharp"))
+      .forEach(key => {
         createPage({
-          path: `/${instrument}/${key.replace("#", "sharp")}/${suffix
-            .replace("#", "sharp")
-            .replace("/", "_")}`,
+          path: `/${instrument}/${key}`,
           component: instrumentTpl,
           context: {
             instrument,
             key,
-            suffix,
           },
         })
-      )
-    })
+
+        instruments[instrument].suffixes.forEach(suffix =>
+          createPage({
+            path: `/${instrument}/${key}/${suffix
+              .replace("#", "sharp")
+              .replace("/", "_")}`,
+            component: instrumentTpl,
+            context: {
+              instrument,
+              key,
+              suffix,
+            },
+          })
+        )
+      })
   })
 }

@@ -11,15 +11,15 @@ const LeftMenu = ({ instrument, selectedKey, suffixes, selectedSuffix }) =>
             className={
               (suffix === selectedSuffix.replace("sharp", "#").replace("_", "/")
                 ? `text-blue-500 font-bold hover:text-grey-800 `
-                : `text-grey-800 hover:text-blue-500 `) +
-              `py-1 px-3`
+                : `text-grey-800 hover:text-blue-500 `) + `py-1 px-3`
             }
-            to={`/${instrument}/${selectedKey.replace("#", "sharp")}/${suffix.replace(
+            to={`/${instrument}/${selectedKey.replace(
               "#",
               "sharp"
-            ).replace("/", "_")}`}
+            )}/${suffix.replace("#", "sharp").replace("/", "_")}`}
           >
-            {selectedKey}<span className="text-sm">{suffix}</span>
+            {selectedKey.replace("sharp", "#")}
+            <span className="text-sm">{suffix}</span>
           </Link>
         </li>
       ))}

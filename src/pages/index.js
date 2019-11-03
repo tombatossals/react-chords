@@ -9,18 +9,23 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
         return chord.positions.map((position, version) =>
           svg ? (
             <a
-              href={`/react-chords/static/svg/${instrument.name}/chords/${chord.key.replace(
+              href={`/react-chords/svg/${
+                instrument.name
+              }/chords/${chord.key.replace(
                 "#",
                 "sharp"
               )}/${chord.suffix
                 .replace("#", "sharp")
-                .replace("/", "_")}/${chord.key.replace(
-                "#",
-                "sharp"
-              )}-${chord.suffix
-                .replace("#", "sharp")
-                .replace("/", "_")}-${version}.svg`}
+                .replace("/", "_")}/${version + 1}.svg`}
             >
+              <p className="text-lg text-center mb-0">
+                {chord.key}
+                <span className="text-xs">{chord.suffix}</span>{" "}
+                {chord.positions.length > 1 && (
+                  <span className="font-bold text-sm">(v{version + 1})</span>
+                )}
+              </p>
+
               <Chord chord={position} instrument={instrument} lite={lite} />
             </a>
           ) : (
@@ -31,11 +36,11 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
                 "sharp"
               )}/${chord.suffix.replace("#", "sharp").replace("/", "_")}`}
             >
-              <p className="text-lg">
+              <p className="text-lg text-center">
                 {chord.key}
                 <span className="text-xs">{chord.suffix}</span>{" "}
                 {chord.positions.length > 1 && (
-                  <span className="font-bold text-sm">(v{version})</span>
+                  <span className="font-bold text-sm">(v{version + 1})</span>
                 )}
               </p>
               <Chord chord={position} instrument={instrument} lite={lite} />
