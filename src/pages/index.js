@@ -8,16 +8,7 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
       chords.map((chord, px) => {
         return chord.positions.map((position, version) =>
           svg ? (
-            <a
-              href={`/react-chords/svg/${
-                instrument.name
-              }/chords/${chord.key.replace(
-                "#",
-                "sharp"
-              )}/${chord.suffix
-                .replace("#", "sharp")
-                .replace("/", "_")}/${version + 1}.svg`}
-            >
+            <div>
               <p className="text-lg text-center mb-0">
                 {chord.key}
                 <span className="text-xs">{chord.suffix}</span>{" "}
@@ -27,7 +18,51 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
               </p>
 
               <Chord chord={position} instrument={instrument} lite={lite} />
-            </a>
+              <p className="text-center">
+                Download:{" "}
+                <a
+                  className="text-xs"
+                  href={`/react-chords/svg/${
+                    instrument.name
+                  }/chords/${chord.key.replace(
+                    "#",
+                    "sharp"
+                  )}/${chord.suffix
+                    .replace("#", "sharp")
+                    .replace("/", "_")}/${version + 1}.svg`}
+                >
+                  SVG
+                </a>
+                {"/"}
+                <a
+                  className="text-xs"
+                  href={`/react-chords/svg/${
+                    instrument.name
+                  }/chords/${chord.key.replace(
+                    "#",
+                    "sharp"
+                  )}/${chord.suffix
+                    .replace("#", "sharp")
+                    .replace("/", "_")}/${version + 1}.pmg`}
+                >
+                  PNG
+                </a>
+                {"/"}
+                <a
+                  className="text-xs"
+                  href={`/react-chords/svg/${
+                    instrument.name
+                  }/chords/${chord.key.replace(
+                    "#",
+                    "sharp"
+                  )}/${chord.suffix
+                    .replace("#", "sharp")
+                    .replace("/", "_")}/${version + 1}.json`}
+                >
+                  JSON
+                </a>
+              </p>
+            </div>
           ) : (
             <Link
               key={px + "_" + version}
