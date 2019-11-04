@@ -3,56 +3,84 @@ import fs from "fs"
 import path from "path"
 import mkdirp from "mkdirp"
 import Chord from "@tombatossals/react-chords/lib/Chord"
-
+import { convertFile } from "convert-svg-to-png"
 import { renderToStaticMarkup } from "react-dom/server"
 
-const basedir = path.join(__dirname, "..", "public", "static", "svg")
+const basedir = path.join(__dirname, "..", "..", "public", "media")
 const instruments = ["guitar", "ukulele"]
 
-const writeSVGFile = (f, svg) => fs.writeFileSync(f, svg)
+const writeSVGFile = async (f, svg) => await fs.writeFileSync(f, svg)
 
-const createSVGChordAndWriteFile = async (chord, version, instrument) => {
-  const key = chord.key.replace("#", "sharp")
-  const suffix = chord.suffix.replace("#", "sharp").replace("/", "_")
-  const dirname = path.join(
-    basedir,
-    instrument.main.name.toLowerCase(),
-    "chords",
-    key,
-    suffix
-  )
+const writePNGFile = async f =>
+  convertFile(f, { background: "white", widht: 400, height: 400 })
 
-  mkdirp(dirname, function(err) {
-    if (err) return console.error(err)
-    const f = path.join(dirname, `${version}.svg`)
-    const svg = renderToStaticMarkup(
-      React.createElement(Chord, {
-        chord: chord.positions[version],
-        instrument: {
-          strings: instrument.main.strings,
-          fretsOnChord: instrument.main.fretsOnChord,
-          name: instrument.main.name,
-          tunings: instrument.tunings,
-        },
-        version,
-      })
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+const createSVGChordAndWriteFile = async (chord, version, instrument) =>
+  new Promise(async resolve => {
+    const key = chord.key.replace("#", "sharp")
+    const suffix = chord.suffix.replace("#", "sharp").replace("/", "_")
+    const dirname = path.join(
+      basedir,
+      instrument.main.name.toLowerCase(),
+      "chords",
+      key,
+      suffix
     )
 
-    writeSVGFile(f, svg)
+    await mkdirp.sync(dirname)
+
+    const promises = Object.keys(chord.positions).map(
+      async v =>
+        new Promise(async resolve => {
+          const f = path.join(dirname, `${v}.svg`)
+          const svg = renderToStaticMarkup(
+            React.createElement(Chord, {
+              chord: chord.positions[v],
+              instrument: {
+                strings: instrument.main.strings,
+                fretsOnChord: instrument.main.fretsOnChord,
+                name: instrument.main.name,
+                tunings: instrument.tunings,
+              },
+              v,
+            })
+          )
+
+          if (!svg) {
+            return resolve()
+          }
+
+          await writeSVGFile(f, svg)
+          await writePNGFile(f)
+          resolve()
+        })
+    )
+
+    await Promise.all(promises)
+    console.log("done", instrument.main.name, key, suffix)
+    return resolve()
   })
-}
 
 const run = async () => {
-  for (let i of instruments) {
-    const instrument = require(`@tombatossals/chords-db/lib/${i}.json`)
-    for (let key of Object.keys(instrument.chords)) {
-      for (let c of instrument.chords[key].slice(0,1)) {
-        for (let v of Object.keys(c.positions)) {
-          await createSVGChordAndWriteFile(c, parseInt(v, 10) + 1, instrument)
-        }
-      }
-    }
-  }
-}
+  const chords = []
 
+  instruments.map(async i => {
+    const instrument = require(`@tombatossals/chords-db/lib/${i}.json`)
+    Object.keys(instrument.chords).map(key =>
+      instrument.chords[key].map(c => chords.push({ c, instrument }))
+    )
+  })
+
+  chords.reduce(async (p, chord) => {
+    return p.then(
+      async () =>
+        await createSVGChordAndWriteFile(
+          chord.c,
+          parseInt(chord.v, 10) + 1,
+          chord.instrument
+        )
+    )
+  }, Promise.resolve())
+}
 run()

@@ -22,7 +22,7 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
                 Download:{" "}
                 <a
                   className="text-xs"
-                  href={`/react-chords/svg/${
+                  href={`/react-chords/media/${
                     instrument.name
                   }/chords/${chord.key.replace(
                     "#",
@@ -36,30 +36,16 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
                 {"/"}
                 <a
                   className="text-xs"
-                  href={`/react-chords/svg/${
+                  href={`/media/${
                     instrument.name
                   }/chords/${chord.key.replace(
                     "#",
                     "sharp"
                   )}/${chord.suffix
                     .replace("#", "sharp")
-                    .replace("/", "_")}/${version + 1}.pmg`}
+                    .replace("/", "_")}/${version + 1}.png`}
                 >
                   PNG
-                </a>
-                {"/"}
-                <a
-                  className="text-xs"
-                  href={`/react-chords/svg/${
-                    instrument.name
-                  }/chords/${chord.key.replace(
-                    "#",
-                    "sharp"
-                  )}/${chord.suffix
-                    .replace("#", "sharp")
-                    .replace("/", "_")}/${version + 1}.json`}
-                >
-                  JSON
                 </a>
               </p>
             </div>
