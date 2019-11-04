@@ -55,7 +55,6 @@ const Layout = ({ children, pageContext }) => {
   `)
 
   const instruments = { guitar, ukulele }
-  console.log(pageContext)
   const i = pageContext.instrument ? pageContext.instrument : "guitar"
   const key = pageContext.key ? pageContext.key.replace("#", "sharp") : ""
   const suffix = pageContext.suffix
@@ -84,7 +83,7 @@ const Layout = ({ children, pageContext }) => {
       />
       <main className="flex mb-4 content-center">
         {key && (
-          <div className="w-1/8">
+          <div className="w-1/8 hidden sm:block">
             <LeftMenu
               selectedKey={key}
               instrument={i}

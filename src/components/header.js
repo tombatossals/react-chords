@@ -20,7 +20,7 @@ const Header = ({ siteTitle, instrument }) => (
     render={data => (
       <header className="text-gray-800">
         <div className="flex items-center justify-between mx-auto px-4">
-          <h1 className="flex-grow text-5xl font-bold">
+          <h1 className="flex-grow hidden sm:block sm:text-3xl md:text-4xl lg:text-5xl font-bold">
             <Link
               to="/"
               style={{
