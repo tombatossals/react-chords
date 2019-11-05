@@ -8,10 +8,10 @@
     "@tombatossals/chords-db": "^0.5.1",
     "@tombatossals/react-chords": "^0.2.9",
     "convert-svg-to-png": "^0.5.0",
-    "gatsby": "^2.17.7",
+    "gatsby": "^2.17.8",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-manifest": "^2.2.26",
-    "gatsby-plugin-offline": "^3.0.17",
+    "gatsby-plugin-offline": "^3.0.18",
     "gatsby-plugin-postcss": "^2.1.13",
     "gatsby-plugin-purgecss": "^4.0.1",
     "gatsby-plugin-react-helmet": "^3.1.13",
@@ -44,7 +44,7 @@
     "start": "npm run develop",
     "svg": "babel-node src/tools/generate-svg-chords",
     "serve": "gatsby serve",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gatsby build --prefix-paths && touch public/.nojekyll && gh-pages -d public",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {

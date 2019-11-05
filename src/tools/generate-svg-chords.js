@@ -32,8 +32,9 @@ const createSVGChordAndWriteFile = async (chord, version, instrument) =>
 
     const promises = Object.keys(chord.positions).map(
       async v =>
-        new Promise(async resolve => {
-          const f = path.join(dirname, `${v}.svg`)
+        new Promise(async (resolve, index) => {
+          await sleep(500 * index)
+          const f = path.join(dirname, `${parseInt(v, 10) + 1}.svg`)
           const svg = renderToStaticMarkup(
             React.createElement(Chord, {
               chord: chord.positions[v],
