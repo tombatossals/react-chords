@@ -36,7 +36,7 @@ const IndexPage = ({ chords, instrument, lite, svg }) => (
                 {"/"}
                 <a
                   className="text-xs"
-                  href={`/media/${
+                  href={`/react-chords/media/${
                     instrument.name
                   }/chords/${chord.key.replace(
                     "#",
