@@ -1,3 +1,18 @@
+## 1.1.0 (October 15, 2025)
+
+### Component
+
+*   Added `Piano.js` component to render piano chord diagrams.
+*   Added `ChordBlock.js` wrapper component to display chord diagrams with titles and interactive elements like a play button.
+
+### Example App
+
+*   The example app has been completely overhauled to serve as a full-featured chord browser.
+*   Implemented dynamic routing with `react-router-dom` to allow navigation and sharing of specific chords (e.g., `/guitar/C/minor`).
+*   Added audio playback functionality for all instruments (Piano, Guitar, Ukulele) using the Web Audio API.
+*   Included a real-time search feature to filter chords dynamically.
+*   Configured the build process for easy deployment to GitHub Pages.
+
 ## 0.2.9 (Aug 17, 2017)
 
 * Dependency on babel-preset-env
