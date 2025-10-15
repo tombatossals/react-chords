@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-chords/static/css/main.8b6cebd8.css",
+    "main.js": "/react-chords/static/js/main.5c224564.js",
+    "index.html": "/react-chords/index.html",
+    "main.8b6cebd8.css.map": "/react-chords/static/css/main.8b6cebd8.css.map",
+    "main.5c224564.js.map": "/react-chords/static/js/main.5c224564.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b6cebd8.css",
+    "static/js/main.5c224564.js"
+  ]
+}

@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles that are harder to replicate with utility classes */
+.chords-grid.all-selected {
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+}
+.chords-grid.suffix-selected {
+  @apply flex flex-wrap gap-2;
+}
+.chords-grid.suffix-selected .chord-container {
+  @apply flex-1 basis-20 min-w-[80px];
+}
