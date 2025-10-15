@@ -1,7 +1,7 @@
 {
   "name": "@tombatossals/react-chords",
   "description": "React library to easily render instrument chord diagrams",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "devDependencies": {
     "@babel/cli": "^7.6.4",
