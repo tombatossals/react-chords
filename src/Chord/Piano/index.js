@@ -12,41 +12,68 @@ const blackKeys = { // Mapeia a nota branca para sua correspondente preta
 
 const Piano = ({ chord, lite }) => {
   // Remove o número da oitava e converte 'b' para '#' para padronização
-  const chordNotes = chord.notes.map(note =>
-    note.slice(0, -1)
-      .replace('Db', 'C#').replace('Eb', 'D#').replace('Gb', 'F#').replace('Ab', 'G#').replace('Bb', 'A#')
+  const chordNotes = chord.frets.map(note =>
+    note.replace('Db', 'C#').replace('Eb', 'D#').replace('Gb', 'F#').replace('Ab', 'G#').replace('Bb', 'A#')
   );
 
   return (
     <g>
-      {/* White Keys */}
-      {whiteKeys.map((note, i) => (
-        <rect
-          key={note}
-          x={i * 10}
-          y={0}
-          width={10}
-          height={48}
-          fill={chordNotes.includes(note) ? '#e5e7eb' : '#ffffff'}
-          stroke='#444'
-          strokeWidth='0.25'
-        />
-      ))}
+      {/* Teclas Brancas e seus Nomes */}
+      {whiteKeys.map((note, i) => {
+        const isPressed = chordNotes.includes(note);
+        return (
+          <React.Fragment key={`white-${note}`}>
+            <rect
+              x={i * 10}
+              y={0}
+              width={10}
+              height={48}
+              fill={isPressed ? '#e5e7eb' : '#ffffff'}
+              stroke='#444'
+              strokeWidth='0.25'
+            />
+            {isPressed && (
+              <text
+                x={(i * 10) + 5}
+                y={42}
+                textAnchor="middle"
+                fontSize="3px"
+                fontFamily="Arial"
+                fill="#000"
+              >
+                {`${note}4`}
+              </text>
+            )}
+          </React.Fragment>
+        );
+      })}
       {/* Black Keys */}
       {whiteKeys.map((note, i) => {
         if (!blackKeys[note]) return null
         const blackNote = blackKeys[note]
+        const isPressed = chordNotes.includes(blackNote);
         return (
-          <rect
-            key={blackNote}
-            x={(i * 10) + 7}
-            y={0}
-            width={6}
-            height={30}
-            fill={chordNotes.includes(blackNote) ? '#e5e7eb' : '#000000'}
-            stroke='#444'
-            strokeWidth='0.25'
-          />
+          <React.Fragment key={`black-${blackNote}`}>
+            <rect
+              x={(i * 10) + 7}
+              y={0}
+              width={6}
+              height={30}
+              fill={isPressed ? '#e5e7eb' : '#000000'}
+              stroke='#444'
+              strokeWidth='0.25'
+            />
+            {isPressed && (
+              <text
+                x={(i * 10) + 10}
+                y={25}
+                textAnchor="middle"
+                fontSize="2.5px"
+                fontFamily="Arial"
+                fill="#000"
+              >{`${blackNote}4`}</text>
+            )}
+          </React.Fragment>
         )
       })}
       {/* Octave indicator */}

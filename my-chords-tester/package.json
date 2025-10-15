@@ -10,7 +10,8 @@
     "@tombatossals/chords-db": "git+https://github.com/tombatossals/chords-db.git",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^7.9.4",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

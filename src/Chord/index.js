@@ -12,7 +12,7 @@ const onlyDots = chord =>
   .filter(f => !chord.barres || chord.barres.indexOf(f.value) === -1)
 
 const Chord = ({ chord, instrument, lite }) =>
-  chord && (instrument.name === 'Piano' ? chord.notes : chord.frets) ? <svg
+  chord && chord.frets ? <svg
     width='100%'
     xmlns='http://www.w3.org/2000/svg'
     preserveAspectRatio='xMinYMin meet'
