@@ -4,6 +4,7 @@ import ChordBlock from '@tombatossals/react-chords/lib/Chord/ChordBlock'
 import guitarChords from '@tombatossals/chords-db/lib/guitar.json';
 import ukuleleChords from '@tombatossals/chords-db/lib/ukulele.json';
 import pianoChords from '@tombatossals/chords-db/lib/piano.json';
+import cavaquinhoChords from '@tombatossals/chords-db/lib/cavaquinho.json';
 import { addMidiToPosition } from '@tombatossals/react-chords/lib/Chord/midiUtils';
 import './App.css';
 
@@ -44,6 +45,19 @@ const instruments = {
             keys: [],
             tunings: {
                 standard: []
+            }
+        }
+    },
+    cavaquinho: {
+        name: 'Cavaquinho',
+        chords: cavaquinhoChords,
+        config: {
+            strings: 4,
+            fretsOnChord: 4,
+            name: 'Cavaquinho',
+            keys: [],
+            tunings: {
+                standard: ['D', 'G', 'B', 'D']
             }
         }
     }
