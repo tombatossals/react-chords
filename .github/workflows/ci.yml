@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  library:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - run: corepack enable && corepack prepare yarn@1.22.22 --activate
+      - run: yarn install --frozen-lockfile
+      - run: yarn audit --level high
+      - run: yarn standard
+      - run: yarn build
+
+  tester:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: yarn
+          cache-dependency-path: my-chords-tester/yarn.lock
+      - run: corepack enable && corepack prepare yarn@1.22.22 --activate
+      - run: yarn install --frozen-lockfile
+        working-directory: my-chords-tester
+      - run: |
+          node <<'NODE'
+          const { spawnSync } = require('node:child_process')
+          const result = spawnSync('yarn', ['audit', '--json'], { encoding: 'utf8' })
+          const summary = result.stdout.split(/\r?\n/).map((line) => {
+            try { return JSON.parse(line) } catch { return null }
+          }).find((item) => item?.type === 'auditSummary')
+          if (result.error || !summary) {
+            process.stderr.write(result.stderr || 'Audit did not return a summary\n')
+            process.exit(1)
+          }
+          const critical = summary.data.vulnerabilities.critical || 0
+          console.log(`Dependency audit critical findings: ${critical}`)
+          process.exit(critical ? 1 : 0)
+          NODE
+        working-directory: my-chords-tester
+      - run: yarn test --runInBand --watchAll=false
+        working-directory: my-chords-tester
+        env:
+          CI: 'true'
+      - run: yarn build
+        working-directory: my-chords-tester

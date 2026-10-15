@@ -8,57 +8,73 @@ import { instrumentPropTypes } from './propTypes'
 
 const onlyDots = chord =>
   chord.frets
-  .map((f, index) => ({ position: index, value: f }))
-  .filter(f => !chord.barres || chord.barres.indexOf(f.value) === -1)
+    .map((f, index) => ({ position: index, value: f }))
+    .filter(f => !chord.barres || chord.barres.indexOf(f.value) === -1)
 
-const Chord = ({ chord, instrument, lite }) =>
-  chord && chord.frets ? <svg
-    width='100%'
-    xmlns='http://www.w3.org/2000/svg'
-    preserveAspectRatio='xMinYMin meet'
-    viewBox='0 0 80 70'>
-    { instrument.name === 'Piano'
-      ? (
-        <g transform='translate(5, 13)'>
-          <Piano chord={chord} lite={lite} />
-        </g>
-        )
-      : (
-        <g transform='translate(13, 13)'>
-          <Neck
-            tuning={instrument.tunings.standard}
-            strings={instrument.strings}
-            frets={chord.frets}
-            capo={chord.capo}
-            fretsOnChord={instrument.fretsOnChord}
-            baseFret={chord.baseFret}
-            lite={lite}
-          />
+const getViewBoxHeight = instrument =>
+  instrument.name === 'Piano' ? 70 : instrument.fretsOnChord * 12 + 22
 
-          {chord.barres && chord.barres.map((barre, index) =>
-            <Barre
-              key={index}
-              capo={index === 0 && chord.capo}
-              barre={barre}
-              finger={chord.fingers && chord.fingers[chord.frets.indexOf(barre)]}
-              frets={chord.frets}
-              lite={lite}
-            />)}
+const getFretsOnChord = (instrument, chord) =>
+  Math.max(instrument.fretsOnChord, ...chord.frets.filter(fret => fret > 0))
 
-          {onlyDots(chord).map(fret => (
-            <Dot
-              key={fret.position}
-              string={instrument.strings - fret.position}
-              fret={fret.value}
+const Chord = ({ chord, instrument, lite }) => {
+  if (!chord || !chord.frets) return null
+
+  const fretsOnChord = instrument.name === 'Piano'
+    ? instrument.fretsOnChord
+    : getFretsOnChord(instrument, chord)
+  const renderedInstrument = { ...instrument, fretsOnChord }
+
+  return (
+    <svg
+      width='100%'
+      xmlns='http://www.w3.org/2000/svg'
+      preserveAspectRatio='xMinYMin meet'
+      viewBox={`0 0 80 ${getViewBoxHeight(renderedInstrument)}`}
+    >
+      {instrument.name === 'Piano'
+        ? (
+          <g transform='translate(5, 13)'>
+            <Piano chord={chord} lite={lite} />
+          </g>
+          )
+        : (
+          <g transform='translate(13, 13)'>
+            <Neck
+              tuning={instrument.tunings.standard}
               strings={instrument.strings}
-              finger={chord.fingers && chord.fingers[fret.position]}
+              frets={chord.frets}
+              capo={chord.capo}
+              fretsOnChord={fretsOnChord}
+              baseFret={chord.baseFret}
               lite={lite}
             />
-          ))}
-        </g>
-        )
-    }
-  </svg> : null
+
+            {chord.barres && chord.barres.map((barre, index) =>
+              <Barre
+                key={index}
+                capo={index === 0 && chord.capo}
+                barre={barre}
+                finger={chord.fingers && chord.fingers[chord.frets.indexOf(barre)]}
+                frets={chord.frets}
+                lite={lite}
+              />)}
+
+            {onlyDots(chord).map(fret => (
+              <Dot
+                key={fret.position}
+                string={instrument.strings - fret.position}
+                fret={fret.value}
+                strings={instrument.strings}
+                finger={chord.fingers && chord.fingers[fret.position]}
+                lite={lite}
+              />
+            ))}
+          </g>
+          )}
+    </svg>
+  )
+}
 
 Chord.propTypes = {
   chord: PropTypes.any,

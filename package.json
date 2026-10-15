@@ -4,11 +4,11 @@
   "version": "1.1.0",
   "private": false,
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/node": "^7.6.3",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.24.7",
+    "@babel/cli": "8.0.6",
+    "@babel/core": "8.0.7",
+    "@babel/node": "8.0.6",
+    "@babel/preset-env": "8.0.7",
+    "@babel/preset-react": "8.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "standard": "^17.1.2"
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tombatossals/react-chords.git"
+    "url": "git+https://github.com/rezendehugo/react-chords.git"
   },
   "keywords": [
     "svg",
@@ -35,11 +35,20 @@
   "author": "David Rubert",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tombatossals/react-chords/issues"
+    "url": "https://github.com/rezendehugo/react-chords/issues"
   },
-  "homepage": "https://tombatossals.github.io/react-chords",
+  "homepage": "https://rezendehugo.github.io/react-chords",
   "peerDependencies": {
     "react": ">=16.8.0 || ^17 || ^18 || ^19",
     "react-dom": ">=16.8.0 || ^17 || ^18 || ^19"
+  },
+  "resolutions": {
+    "standard/**/ajv": "6.14.0",
+    "baseline-browser-mapping": "2.11.0",
+    "brace-expansion": "1.1.21",
+    "browserslist": "4.28.7",
+    "standard/**/flatted": "3.4.2",
+    "js-yaml": "4.3.2",
+    "standard/**/minimatch": "3.1.4"
   }
 }
